@@ -1,0 +1,749 @@
+{
+  "api": {
+      "results": 1,
+      "standings": [
+          [
+              {
+                  "rank": 1,
+                  "team_id": 40,
+                  "teamName": "Liverpool",
+                  "logo": "https://media.api-sports.io/football/teams/40.png",
+                  "group": "Premier League",
+                  "forme": "WWLDW",
+                  "status": "same",
+                  "description": "Promotion - Champions League (Group Stage)",
+                  "all": {
+                      "matchsPlayed": 38,
+                      "win": 32,
+                      "draw": 3,
+                      "lose": 3,
+                      "goalsFor": 85,
+                      "goalsAgainst": 33
+                  },
+                  "home": {
+                      "matchsPlayed": 19,
+                      "win": 18,
+                      "draw": 1,
+                      "lose": 0,
+                      "goalsFor": 52,
+                      "goalsAgainst": 16
+                  },
+                  "away": {
+                      "matchsPlayed": 19,
+                      "win": 14,
+                      "draw": 2,
+                      "lose": 3,
+                      "goalsFor": 33,
+                      "goalsAgainst": 17
+                  },
+                  "goalsDiff": 52,
+                  "points": 99,
+                  "lastUpdate": "2020-07-26"
+              },
+              {
+                  "rank": 2,
+                  "team_id": 50,
+                  "teamName": "Manchester City",
+                  "logo": "https://media.api-sports.io/football/teams/50.png",
+                  "group": "Premier League",
+                  "forme": "WWWWW",
+                  "status": "same",
+                  "description": "Promotion - Champions League (Group Stage)",
+                  "all": {
+                      "matchsPlayed": 38,
+                      "win": 26,
+                      "draw": 3,
+                      "lose": 9,
+                      "goalsFor": 102,
+                      "goalsAgainst": 35
+                  },
+                  "home": {
+                      "matchsPlayed": 19,
+                      "win": 15,
+                      "draw": 2,
+                      "lose": 2,
+                      "goalsFor": 57,
+                      "goalsAgainst": 13
+                  },
+                  "away": {
+                      "matchsPlayed": 19,
+                      "win": 11,
+                      "draw": 1,
+                      "lose": 7,
+                      "goalsFor": 45,
+                      "goalsAgainst": 22
+                  },
+                  "goalsDiff": 67,
+                  "points": 81,
+                  "lastUpdate": "2020-07-26"
+              },
+              {
+                  "rank": 3,
+                  "team_id": 33,
+                  "teamName": "Manchester United",
+                  "logo": "https://media.api-sports.io/football/teams/33.png",
+                  "group": "Premier League",
+                  "forme": "WDWDW",
+                  "status": "same",
+                  "description": "Promotion - Champions League (Group Stage)",
+                  "all": {
+                      "matchsPlayed": 38,
+                      "win": 18,
+                      "draw": 12,
+                      "lose": 8,
+                      "goalsFor": 66,
+                      "goalsAgainst": 36
+                  },
+                  "home": {
+                      "matchsPlayed": 19,
+                      "win": 10,
+                      "draw": 7,
+                      "lose": 2,
+                      "goalsFor": 40,
+                      "goalsAgainst": 17
+                  },
+                  "away": {
+                      "matchsPlayed": 19,
+                      "win": 8,
+                      "draw": 5,
+                      "lose": 6,
+                      "goalsFor": 26,
+                      "goalsAgainst": 19
+                  },
+                  "goalsDiff": 30,
+                  "points": 66,
+                  "lastUpdate": "2020-07-26"
+              },
+              {
+                  "rank": 4,
+                  "team_id": 49,
+                  "teamName": "Chelsea",
+                  "logo": "https://media.api-sports.io/football/teams/49.png",
+                  "group": "Premier League",
+                  "forme": "WLWLW",
+                  "status": "same",
+                  "description": "Promotion - Champions League (Group Stage)",
+                  "all": {
+                      "matchsPlayed": 38,
+                      "win": 20,
+                      "draw": 6,
+                      "lose": 12,
+                      "goalsFor": 69,
+                      "goalsAgainst": 54
+                  },
+                  "home": {
+                      "matchsPlayed": 19,
+                      "win": 11,
+                      "draw": 3,
+                      "lose": 5,
+                      "goalsFor": 30,
+                      "goalsAgainst": 16
+                  },
+                  "away": {
+                      "matchsPlayed": 19,
+                      "win": 9,
+                      "draw": 3,
+                      "lose": 7,
+                      "goalsFor": 39,
+                      "goalsAgainst": 38
+                  },
+                  "goalsDiff": 15,
+                  "points": 66,
+                  "lastUpdate": "2020-07-26"
+              },
+              {
+                  "rank": 5,
+                  "team_id": 46,
+                  "teamName": "Leicester",
+                  "logo": "https://media.api-sports.io/football/teams/46.png",
+                  "group": "Premier League",
+                  "forme": "LLWLD",
+                  "status": "same",
+                  "description": "Promotion - Europa League (Group Stage)",
+                  "all": {
+                      "matchsPlayed": 38,
+                      "win": 18,
+                      "draw": 8,
+                      "lose": 12,
+                      "goalsFor": 67,
+                      "goalsAgainst": 41
+                  },
+                  "home": {
+                      "matchsPlayed": 19,
+                      "win": 11,
+                      "draw": 4,
+                      "lose": 4,
+                      "goalsFor": 35,
+                      "goalsAgainst": 17
+                  },
+                  "away": {
+                      "matchsPlayed": 19,
+                      "win": 7,
+                      "draw": 4,
+                      "lose": 8,
+                      "goalsFor": 32,
+                      "goalsAgainst": 24
+                  },
+                  "goalsDiff": 26,
+                  "points": 62,
+                  "lastUpdate": "2020-07-26"
+              },
+              {
+                  "rank": 6,
+                  "team_id": 47,
+                  "teamName": "Tottenham",
+                  "logo": "https://media.api-sports.io/football/teams/47.png",
+                  "group": "Premier League",
+                  "forme": "DWWWD",
+                  "status": "same",
+                  "description": "Promotion - Europa League (Qualification)",
+                  "all": {
+                      "matchsPlayed": 38,
+                      "win": 16,
+                      "draw": 11,
+                      "lose": 11,
+                      "goalsFor": 61,
+                      "goalsAgainst": 47
+                  },
+                  "home": {
+                      "matchsPlayed": 19,
+                      "win": 12,
+                      "draw": 3,
+                      "lose": 4,
+                      "goalsFor": 36,
+                      "goalsAgainst": 17
+                  },
+                  "away": {
+                      "matchsPlayed": 19,
+                      "win": 4,
+                      "draw": 8,
+                      "lose": 7,
+                      "goalsFor": 25,
+                      "goalsAgainst": 30
+                  },
+                  "goalsDiff": 14,
+                  "points": 59,
+                  "lastUpdate": "2020-07-26"
+              },
+              {
+                  "rank": 7,
+                  "team_id": 39,
+                  "teamName": "Wolves",
+                  "logo": "https://media.api-sports.io/football/teams/39.png",
+                  "group": "Premier League",
+                  "forme": "LWDWL",
+                  "status": "same",
+                  "description": null,
+                  "all": {
+                      "matchsPlayed": 38,
+                      "win": 15,
+                      "draw": 14,
+                      "lose": 9,
+                      "goalsFor": 51,
+                      "goalsAgainst": 40
+                  },
+                  "home": {
+                      "matchsPlayed": 19,
+                      "win": 8,
+                      "draw": 7,
+                      "lose": 4,
+                      "goalsFor": 27,
+                      "goalsAgainst": 19
+                  },
+                  "away": {
+                      "matchsPlayed": 19,
+                      "win": 7,
+                      "draw": 7,
+                      "lose": 5,
+                      "goalsFor": 24,
+                      "goalsAgainst": 21
+                  },
+                  "goalsDiff": 11,
+                  "points": 59,
+                  "lastUpdate": "2020-07-26"
+              },
+              {
+                  "rank": 8,
+                  "team_id": 42,
+                  "teamName": "Arsenal",
+                  "logo": "https://media.api-sports.io/football/teams/42.png",
+                  "group": "Premier League",
+                  "forme": "WLWLD",
+                  "status": "same",
+                  "description": null,
+                  "all": {
+                      "matchsPlayed": 38,
+                      "win": 14,
+                      "draw": 14,
+                      "lose": 10,
+                      "goalsFor": 56,
+                      "goalsAgainst": 48
+                  },
+                  "home": {
+                      "matchsPlayed": 19,
+                      "win": 10,
+                      "draw": 6,
+                      "lose": 3,
+                      "goalsFor": 36,
+                      "goalsAgainst": 24
+                  },
+                  "away": {
+                      "matchsPlayed": 19,
+                      "win": 4,
+                      "draw": 8,
+                      "lose": 7,
+                      "goalsFor": 20,
+                      "goalsAgainst": 24
+                  },
+                  "goalsDiff": 8,
+                  "points": 56,
+                  "lastUpdate": "2020-07-26"
+              },
+              {
+                  "rank": 9,
+                  "team_id": 62,
+                  "teamName": "Sheffield Utd",
+                  "logo": "https://media.api-sports.io/football/teams/62.png",
+                  "group": "Premier League",
+                  "forme": "LLLWW",
+                  "status": "same",
+                  "description": null,
+                  "all": {
+                      "matchsPlayed": 38,
+                      "win": 14,
+                      "draw": 12,
+                      "lose": 12,
+                      "goalsFor": 39,
+                      "goalsAgainst": 39
+                  },
+                  "home": {
+                      "matchsPlayed": 19,
+                      "win": 10,
+                      "draw": 3,
+                      "lose": 6,
+                      "goalsFor": 24,
+                      "goalsAgainst": 15
+                  },
+                  "away": {
+                      "matchsPlayed": 19,
+                      "win": 4,
+                      "draw": 9,
+                      "lose": 6,
+                      "goalsFor": 15,
+                      "goalsAgainst": 24
+                  },
+                  "goalsDiff": 0,
+                  "points": 54,
+                  "lastUpdate": "2020-07-26"
+              },
+              {
+                  "rank": 10,
+                  "team_id": 44,
+                  "teamName": "Burnley",
+                  "logo": "https://media.api-sports.io/football/teams/44.png",
+                  "group": "Premier League",
+                  "forme": "LWDDW",
+                  "status": "same",
+                  "description": null,
+                  "all": {
+                      "matchsPlayed": 38,
+                      "win": 15,
+                      "draw": 9,
+                      "lose": 14,
+                      "goalsFor": 43,
+                      "goalsAgainst": 50
+                  },
+                  "home": {
+                      "matchsPlayed": 19,
+                      "win": 8,
+                      "draw": 4,
+                      "lose": 7,
+                      "goalsFor": 24,
+                      "goalsAgainst": 23
+                  },
+                  "away": {
+                      "matchsPlayed": 19,
+                      "win": 7,
+                      "draw": 5,
+                      "lose": 7,
+                      "goalsFor": 19,
+                      "goalsAgainst": 27
+                  },
+                  "goalsDiff": -7,
+                  "points": 54,
+                  "lastUpdate": "2020-07-26"
+              },
+              {
+                  "rank": 11,
+                  "team_id": 41,
+                  "teamName": "Southampton",
+                  "logo": "https://media.api-sports.io/football/teams/41.png",
+                  "group": "Premier League",
+                  "forme": "WWDDD",
+                  "status": "same",
+                  "description": null,
+                  "all": {
+                      "matchsPlayed": 38,
+                      "win": 15,
+                      "draw": 7,
+                      "lose": 16,
+                      "goalsFor": 51,
+                      "goalsAgainst": 60
+                  },
+                  "home": {
+                      "matchsPlayed": 19,
+                      "win": 6,
+                      "draw": 3,
+                      "lose": 10,
+                      "goalsFor": 21,
+                      "goalsAgainst": 35
+                  },
+                  "away": {
+                      "matchsPlayed": 19,
+                      "win": 9,
+                      "draw": 4,
+                      "lose": 6,
+                      "goalsFor": 30,
+                      "goalsAgainst": 25
+                  },
+                  "goalsDiff": -9,
+                  "points": 52,
+                  "lastUpdate": "2020-07-26"
+              },
+              {
+                  "rank": 12,
+                  "team_id": 45,
+                  "teamName": "Everton",
+                  "logo": "https://media.api-sports.io/football/teams/45.png",
+                  "group": "Premier League",
+                  "forme": "LWDLD",
+                  "status": "same",
+                  "description": null,
+                  "all": {
+                      "matchsPlayed": 38,
+                      "win": 13,
+                      "draw": 10,
+                      "lose": 15,
+                      "goalsFor": 44,
+                      "goalsAgainst": 56
+                  },
+                  "home": {
+                      "matchsPlayed": 19,
+                      "win": 8,
+                      "draw": 7,
+                      "lose": 4,
+                      "goalsFor": 24,
+                      "goalsAgainst": 21
+                  },
+                  "away": {
+                      "matchsPlayed": 19,
+                      "win": 5,
+                      "draw": 3,
+                      "lose": 11,
+                      "goalsFor": 20,
+                      "goalsAgainst": 35
+                  },
+                  "goalsDiff": -12,
+                  "points": 49,
+                  "lastUpdate": "2020-07-26"
+              },
+              {
+                  "rank": 13,
+                  "team_id": 34,
+                  "teamName": "Newcastle",
+                  "logo": "https://media.api-sports.io/football/teams/34.png",
+                  "group": "Premier League",
+                  "forme": "LDLLL",
+                  "status": "same",
+                  "description": null,
+                  "all": {
+                      "matchsPlayed": 38,
+                      "win": 11,
+                      "draw": 11,
+                      "lose": 16,
+                      "goalsFor": 38,
+                      "goalsAgainst": 58
+                  },
+                  "home": {
+                      "matchsPlayed": 19,
+                      "win": 6,
+                      "draw": 8,
+                      "lose": 5,
+                      "goalsFor": 20,
+                      "goalsAgainst": 21
+                  },
+                  "away": {
+                      "matchsPlayed": 19,
+                      "win": 5,
+                      "draw": 3,
+                      "lose": 11,
+                      "goalsFor": 18,
+                      "goalsAgainst": 37
+                  },
+                  "goalsDiff": -20,
+                  "points": 44,
+                  "lastUpdate": "2020-07-26"
+              },
+              {
+                  "rank": 14,
+                  "team_id": 52,
+                  "teamName": "Crystal Palace",
+                  "logo": "https://media.api-sports.io/football/teams/52.png",
+                  "group": "Premier League",
+                  "forme": "DLLLL",
+                  "status": "same",
+                  "description": null,
+                  "all": {
+                      "matchsPlayed": 38,
+                      "win": 11,
+                      "draw": 10,
+                      "lose": 17,
+                      "goalsFor": 31,
+                      "goalsAgainst": 50
+                  },
+                  "home": {
+                      "matchsPlayed": 19,
+                      "win": 6,
+                      "draw": 5,
+                      "lose": 8,
+                      "goalsFor": 15,
+                      "goalsAgainst": 20
+                  },
+                  "away": {
+                      "matchsPlayed": 19,
+                      "win": 5,
+                      "draw": 5,
+                      "lose": 9,
+                      "goalsFor": 16,
+                      "goalsAgainst": 30
+                  },
+                  "goalsDiff": -19,
+                  "points": 43,
+                  "lastUpdate": "2020-07-26"
+              },
+              {
+                  "rank": 15,
+                  "team_id": 51,
+                  "teamName": "Brighton",
+                  "logo": "https://media.api-sports.io/football/teams/51.png",
+                  "group": "Premier League",
+                  "forme": "WDDLL",
+                  "status": "same",
+                  "description": null,
+                  "all": {
+                      "matchsPlayed": 38,
+                      "win": 9,
+                      "draw": 14,
+                      "lose": 15,
+                      "goalsFor": 39,
+                      "goalsAgainst": 54
+                  },
+                  "home": {
+                      "matchsPlayed": 19,
+                      "win": 5,
+                      "draw": 7,
+                      "lose": 7,
+                      "goalsFor": 20,
+                      "goalsAgainst": 27
+                  },
+                  "away": {
+                      "matchsPlayed": 19,
+                      "win": 4,
+                      "draw": 7,
+                      "lose": 8,
+                      "goalsFor": 19,
+                      "goalsAgainst": 27
+                  },
+                  "goalsDiff": -15,
+                  "points": 41,
+                  "lastUpdate": "2020-07-26"
+              },
+              {
+                  "rank": 16,
+                  "team_id": 48,
+                  "teamName": "West Ham",
+                  "logo": "https://media.api-sports.io/football/teams/48.png",
+                  "group": "Premier League",
+                  "forme": "DDWWL",
+                  "status": "same",
+                  "description": null,
+                  "all": {
+                      "matchsPlayed": 38,
+                      "win": 10,
+                      "draw": 9,
+                      "lose": 19,
+                      "goalsFor": 49,
+                      "goalsAgainst": 62
+                  },
+                  "home": {
+                      "matchsPlayed": 19,
+                      "win": 6,
+                      "draw": 4,
+                      "lose": 9,
+                      "goalsFor": 30,
+                      "goalsAgainst": 33
+                  },
+                  "away": {
+                      "matchsPlayed": 19,
+                      "win": 4,
+                      "draw": 5,
+                      "lose": 10,
+                      "goalsFor": 19,
+                      "goalsAgainst": 29
+                  },
+                  "goalsDiff": -13,
+                  "points": 39,
+                  "lastUpdate": "2020-07-26"
+              },
+              {
+                  "rank": 17,
+                  "team_id": 66,
+                  "teamName": "Aston Villa",
+                  "logo": "https://media.api-sports.io/football/teams/66.png",
+                  "group": "Premier League",
+                  "forme": "DWDWL",
+                  "status": "same",
+                  "description": null,
+                  "all": {
+                      "matchsPlayed": 38,
+                      "win": 9,
+                      "draw": 8,
+                      "lose": 21,
+                      "goalsFor": 41,
+                      "goalsAgainst": 67
+                  },
+                  "home": {
+                      "matchsPlayed": 19,
+                      "win": 7,
+                      "draw": 3,
+                      "lose": 9,
+                      "goalsFor": 22,
+                      "goalsAgainst": 30
+                  },
+                  "away": {
+                      "matchsPlayed": 19,
+                      "win": 2,
+                      "draw": 5,
+                      "lose": 12,
+                      "goalsFor": 19,
+                      "goalsAgainst": 37
+                  },
+                  "goalsDiff": -26,
+                  "points": 35,
+                  "lastUpdate": "2020-07-26"
+              },
+              {
+                  "rank": 18,
+                  "team_id": 35,
+                  "teamName": "Bournemouth",
+                  "logo": "https://media.api-sports.io/football/teams/35.png",
+                  "group": "Premier League",
+                  "forme": "WLLWD",
+                  "status": "same",
+                  "description": "Relegation - Championship",
+                  "all": {
+                      "matchsPlayed": 38,
+                      "win": 9,
+                      "draw": 7,
+                      "lose": 22,
+                      "goalsFor": 40,
+                      "goalsAgainst": 65
+                  },
+                  "home": {
+                      "matchsPlayed": 19,
+                      "win": 5,
+                      "draw": 6,
+                      "lose": 8,
+                      "goalsFor": 22,
+                      "goalsAgainst": 30
+                  },
+                  "away": {
+                      "matchsPlayed": 19,
+                      "win": 4,
+                      "draw": 1,
+                      "lose": 14,
+                      "goalsFor": 18,
+                      "goalsAgainst": 35
+                  },
+                  "goalsDiff": -25,
+                  "points": 34,
+                  "lastUpdate": "2020-07-26"
+              },
+              {
+                  "rank": 19,
+                  "team_id": 38,
+                  "teamName": "Watford",
+                  "logo": "https://media.api-sports.io/football/teams/38.png",
+                  "group": "Premier League",
+                  "forme": "LLLWW",
+                  "status": "same",
+                  "description": "Relegation - Championship",
+                  "all": {
+                      "matchsPlayed": 38,
+                      "win": 8,
+                      "draw": 10,
+                      "lose": 20,
+                      "goalsFor": 36,
+                      "goalsAgainst": 64
+                  },
+                  "home": {
+                      "matchsPlayed": 19,
+                      "win": 6,
+                      "draw": 6,
+                      "lose": 7,
+                      "goalsFor": 22,
+                      "goalsAgainst": 27
+                  },
+                  "away": {
+                      "matchsPlayed": 19,
+                      "win": 2,
+                      "draw": 4,
+                      "lose": 13,
+                      "goalsFor": 14,
+                      "goalsAgainst": 37
+                  },
+                  "goalsDiff": -28,
+                  "points": 34,
+                  "lastUpdate": "2020-07-26"
+              },
+              {
+                  "rank": 20,
+                  "team_id": 71,
+                  "teamName": "Norwich",
+                  "logo": "https://media.api-sports.io/football/teams/71.png",
+                  "group": "Premier League",
+                  "forme": "LLLLL",
+                  "status": "same",
+                  "description": "Relegation - Championship",
+                  "all": {
+                      "matchsPlayed": 38,
+                      "win": 5,
+                      "draw": 6,
+                      "lose": 27,
+                      "goalsFor": 26,
+                      "goalsAgainst": 75
+                  },
+                  "home": {
+                      "matchsPlayed": 19,
+                      "win": 4,
+                      "draw": 3,
+                      "lose": 12,
+                      "goalsFor": 19,
+                      "goalsAgainst": 37
+                  },
+                  "away": {
+                      "matchsPlayed": 19,
+                      "win": 1,
+                      "draw": 3,
+                      "lose": 15,
+                      "goalsFor": 7,
+                      "goalsAgainst": 38
+                  },
+                  "goalsDiff": -49,
+                  "points": 21,
+                  "lastUpdate": "2020-07-26"
+              }
+          ]
+      ]
+  }
+}
