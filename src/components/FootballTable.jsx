@@ -6,8 +6,21 @@ const LeagueTable = styled.div`
   display: flex;
   flex-flow: column;
   width: 100%;
-  max-width: 752px;
+  max-height: 300px;
   background-color: #fff;
+  overflow-x: hidden;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #b2b2b2;
+  }
 `;
 
 const LeagueTableHeader = styled.div`
@@ -19,15 +32,26 @@ const LeagueTableHeader = styled.div`
     "club mp win loss draw gf ga gd pts last";
   padding: 5px;
   padding-top: 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #b2b2b2;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
 `;
 
-const LeagueTableRow = styled(LeagueTableHeader)`
+const LeagueTableRow = styled.div`
   border-top: 1px solid #f1f3f4;
   cursor: pointer;
-  font-weight: normal;
+  grid-area: header;
+  display: grid;
+  font-weight: 400;
+  grid-template-columns: 7fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 3fr;
+  grid-template-areas:
+    "club mp win loss draw gf ga gd pts last";
+  padding: 5px;
+  background-color: #fff;
 
   &:hover {
-    background-color: #f3f2f2;
+    background-color: #00d4b1;
   }
 `;
 
@@ -40,38 +64,47 @@ const Club = styled.div`
 
 const MatchesPlayed = styled.div`
   grid-area: mp;
+  text-align: center;
 `;
 
 const Wins = styled.div`
   grid-area: win;
+  text-align: center;
 `;
 
 const Draws = styled.div`
   grid-area: draw;
+  text-align: center;
 `;
 
 const Losses = styled.div`
   grid-area: loss;
+  text-align: center;
 `;
 
 const GoalsFor = styled.div`
   grid-area: gf;
+  text-align: center;
 `;
 
 const GoalsAgainst = styled.div`
   grid-area: ga;
+  text-align: center;
 `;
 
 const GoalDifference = styled.div`
   grid-area: gd;
+  text-align: center;
 `;
 
 const Points = styled.div`
   grid-area: pts;
+  text-align: center;
 `;
 
 const LastFiveHeader = styled.div`
   grid-area: last;
+  text-align: center;
 `;
 
 const LastFive = styled(LastFiveHeader)`
@@ -103,7 +136,7 @@ const ClubInfo = styled.div`
 `;
 
 const FootballTable = ({ standings, addClubToList }) => (
-  <LeagueTable>
+  <section>
     <LeagueTableHeader>
       <Club>Club</Club>
       <MatchesPlayed>MP</MatchesPlayed>
@@ -116,25 +149,27 @@ const FootballTable = ({ standings, addClubToList }) => (
       <Points>Pts</Points>
       <LastFiveHeader>Last 5</LastFiveHeader>
     </LeagueTableHeader>
-    {standings.map((team) => (
-      <LeagueTableRow key={team.team_id} onClick={() => addClubToList(team.team_id, )}>
-        <Club>
-          <ClubRank>{team.rank}</ClubRank>
-          <ClubLogo src={team.logo} alt={team.teamName} />
-          <ClubInfo>{team.teamName}</ClubInfo>
-        </Club>
-        <MatchesPlayed>{team.all.matchsPlayed}</MatchesPlayed>
-        <Wins>{team.all.win}</Wins>
-        <Draws>{team.all.draw}</Draws>
-        <Losses>{team.all.lose}</Losses>
-        <GoalsFor>{team.all.goalsFor}</GoalsFor>
-        <GoalsAgainst>{team.all.goalsAgainst}</GoalsAgainst>
-        <GoalDifference>{team.goalsDiff}</GoalDifference>
-        <Points>{team.points}</Points>
-        <LastFive>{team.forme}</LastFive>
-      </LeagueTableRow>
-    ))}
-  </LeagueTable>
+    <LeagueTable>
+      {standings.map((team) => (
+        <LeagueTableRow key={team.team_id} onClick={() => addClubToList(team.team_id)}>
+          <Club>
+            <ClubRank>{team.rank}</ClubRank>
+            <ClubLogo src={team.logo} alt={team.teamName} />
+            <ClubInfo>{team.teamName}</ClubInfo>
+          </Club>
+          <MatchesPlayed>{team.all.matchsPlayed}</MatchesPlayed>
+          <Wins>{team.all.win}</Wins>
+          <Draws>{team.all.draw}</Draws>
+          <Losses>{team.all.lose}</Losses>
+          <GoalsFor>{team.all.goalsFor}</GoalsFor>
+          <GoalsAgainst>{team.all.goalsAgainst}</GoalsAgainst>
+          <GoalDifference>{team.goalsDiff}</GoalDifference>
+          <Points>{team.points}</Points>
+          <LastFive>{team.forme}</LastFive>
+        </LeagueTableRow>
+      ))}
+    </LeagueTable>
+  </section>
 );
 
 FootballTable.propTypes = {

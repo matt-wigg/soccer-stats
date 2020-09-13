@@ -6,11 +6,11 @@ import FootballTable from './FootballTable';
 import MyClubs from './MyClubs';
 import ClubInfomation from './ClubInfo';
 
-import { getFootballStandings } from '../lib/DatabaseRequests';
+import { getFootballStandings, getTeamInfo } from '../lib/DatabaseRequests';
 
 const MainBody = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   grid-gap: 10px 10px;
   aligh-items: center;
 `;
@@ -21,7 +21,7 @@ class App extends Component {
     this.state = {
       standings: [],
       myClubs: [],
-      clubHighlight: [],
+      teamHighlightInfo: [],
     };
     this.addClubToList = this.addClubToList.bind(this);
     this.removeClubFromList = this.removeClubFromList.bind(this);
@@ -37,7 +37,7 @@ class App extends Component {
     const findTeam = [...standings].filter((e) => e.team_id === id);
     if (!myClubs.some((club) => club.team_id === id)) {
       this.setState((prevState) => ({
-        myClubs: [...prevState.myClubs, findTeam[0]],
+        myClubs: [findTeam[0], ...prevState.myClubs],
       }));
     }
   }
@@ -45,18 +45,17 @@ class App extends Component {
   removeClubFromList(id) {
     const { myClubs } = this.state;
     const newClubs = [...myClubs].filter((e) => e.team_id !== id);
-    console.log(newClubs);
     this.setState({ myClubs: newClubs });
   }
 
   highlightClubInfo(id) {
-    const { myClubs } = this.state;
-    const clubHighlight = [...myClubs].filter((e) => e.team_id === id);
-    this.setState({ clubHighlight });
+    getTeamInfo(id, (teamHighlightInfo) => {
+      this.setState({ teamHighlightInfo });
+    });
   }
 
   render() {
-    const { standings, myClubs, clubHighlight } = this.state;
+    const { standings, myClubs, teamHighlightInfo } = this.state;
     console.log(myClubs);
     return (
       <MainBody>
@@ -67,7 +66,7 @@ class App extends Component {
           removeClubFromList={this.removeClubFromList}
           highlightClubInfo={this.highlightClubInfo}
         />
-        <ClubInfomation clubHighlight={clubHighlight} />
+        <ClubInfomation teamHighlightInfo={teamHighlightInfo} />
       </MainBody>
     );
   }

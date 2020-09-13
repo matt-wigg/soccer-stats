@@ -4,6 +4,7 @@ const { host, apiKey } = require('./config');
 
 const getAndUpdateStandings = (req, res) => {
   const leagueId = req.params.league_id;
+  console.log('API CALL: updateStandings');
   axios({
     method: 'GET',
     url: `https://${host}/v2/leagueTable/${leagueId}`,
@@ -30,6 +31,35 @@ const getAndUpdateStandings = (req, res) => {
     });
 };
 
+const getAndUpdateTeamInfo = (req, res) => {
+  const teamId = req.params.team_id;
+  console.log('API CALL: GET TEAM INFO');
+  axios({
+    method: 'GET',
+    url: `https://${host}/v2/teams/team/${teamId}`,
+    headers: {
+      'content-type': 'application/octet-stream',
+      'x-rapidapi-host': host,
+      'x-rapidapi-key': apiKey,
+      useQueryString: true,
+    },
+  })
+    .then((response) => {
+      const { teams } = response.data.api;
+      const updateDatabase = footy.updateTeamInfo(teamId, teams);
+      Promise.resolve(updateDatabase)
+        .then(() => res.status(200).send(teams))
+        .catch((error) => {
+          console.log(error);
+          res.status(500).send('Unable to update new team.');
+        });
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send('Unable to retrieve new team.');
+    });
+};
+
 const getStandings = (req, res) => {
   const leagueId = req.params.league_id;
   const standings = footy.getLeagueStandings(leagueId);
@@ -41,7 +71,20 @@ const getStandings = (req, res) => {
     });
 };
 
+const getTeam = (req, res) => {
+  const teamId = req.params.team_id;
+  const team = footy.getTeamInfo(teamId);
+  Promise.resolve(team)
+    .then((results) => res.status(200).send(results.teams))
+    .catch((err) => {
+      console.log(err);
+      getAndUpdateTeamInfo(req, res);
+    });
+};
+
 module.exports = {
+  getAndUpdateTeamInfo,
   getAndUpdateStandings,
   getStandings,
+  getTeam,
 };

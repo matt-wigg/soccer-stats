@@ -5,6 +5,7 @@ const client = new MongoClient('mongodb://localhost:27017',
 
 client.connect().then(() => console.log('connected'));
 
-const db = client.db('football').collection('standings');
+const leagueStandings = client.db('football').collection('standings');
+const teamInfo = client.db('football').collection('team');
 
-module.exports = db;
+module.exports = { leagueStandings, teamInfo };
