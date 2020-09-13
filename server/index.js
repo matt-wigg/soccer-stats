@@ -16,9 +16,11 @@ app.use('/football', express.static(path.resolve('public')));
 // External API-FOOTBALL calls
 app.get('/api/tabel/standings/:league_id', fb.getAndUpdateStandings);
 app.get('/api/teams/team/:team_id', fb.getAndUpdateTeamInfo);
+app.get('/api/teams/team/fixtures/:team_id', fb.getAndUpdateTeamFixtures);
 
 // Database requests
 app.get('/football/standings/:league_id', fb.getStandings);
 app.get('/football/teams/team/:team_id', fb.getTeam);
+app.get('/football/teams/team/fixtures/:team_id', fb.getFixtures);
 
 app.listen(PORT, () => console.log(`listening on port: ${PORT}!`));

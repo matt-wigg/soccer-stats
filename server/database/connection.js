@@ -7,5 +7,6 @@ client.connect().then(() => console.log('connected'));
 
 const leagueStandings = client.db('football').collection('standings');
 const teamInfo = client.db('football').collection('team');
+const teamFixtures = client.db('football').collection('fixtures');
 
-module.exports = { leagueStandings, teamInfo };
+module.exports = { leagueStandings, teamInfo, teamFixtures };

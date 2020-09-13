@@ -5,12 +5,13 @@ import GlobalStyle from '../assets/styles';
 import FootballTable from './FootballTable';
 import MyClubs from './MyClubs';
 import ClubInfomation from './ClubInfo';
+import TeamStats from './TeamStats';
 
 import { getFootballStandings, getTeamInfo } from '../lib/DatabaseRequests';
 
 const MainBody = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+  display: flex;
+  min-width: 250px;
   grid-gap: 10px 10px;
   aligh-items: center;
 `;
@@ -22,6 +23,7 @@ class App extends Component {
       standings: [],
       myClubs: [],
       teamHighlightInfo: [],
+      teamHighlightStandings: [],
     };
     this.addClubToList = this.addClubToList.bind(this);
     this.removeClubFromList = this.removeClubFromList.bind(this);
@@ -58,16 +60,20 @@ class App extends Component {
     const { standings, myClubs, teamHighlightInfo } = this.state;
     console.log(myClubs);
     return (
-      <MainBody>
-        <GlobalStyle />
-        <FootballTable standings={standings} addClubToList={this.addClubToList} />
-        <MyClubs
-          myClubs={myClubs}
-          removeClubFromList={this.removeClubFromList}
-          highlightClubInfo={this.highlightClubInfo}
-        />
-        <ClubInfomation teamHighlightInfo={teamHighlightInfo} />
-      </MainBody>
+      <section>
+        <MainBody>
+          <GlobalStyle />
+          <FootballTable standings={standings} addClubToList={this.addClubToList} />
+          <MyClubs
+            myClubs={myClubs}
+            removeClubFromList={this.removeClubFromList}
+            highlightClubInfo={this.highlightClubInfo}
+          />
+          <ClubInfomation teamHighlightInfo={teamHighlightInfo} />
+        </MainBody>
+        <div>space</div>
+        <TeamStats standings={standings} addClubToList={this.addClubToList} />
+      </section>
     );
   }
 }

@@ -7,6 +7,7 @@ const LeagueTable = styled.div`
   flex-flow: column;
   width: 100%;
   max-height: 300px;
+  min-width: 850px;
   background-color: #fff;
   overflow-x: hidden;
   border-bottom-right-radius: 4px;

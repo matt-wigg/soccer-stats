@@ -2,6 +2,8 @@ const axios = require('axios');
 const footy = require('../database/models/query');
 const { host, apiKey } = require('./config');
 
+// TODO: Reduce code-reuse
+
 const getAndUpdateStandings = (req, res) => {
   const leagueId = req.params.league_id;
   console.log('API CALL: updateStandings');
@@ -60,6 +62,35 @@ const getAndUpdateTeamInfo = (req, res) => {
     });
 };
 
+const getAndUpdateTeamFixtures = (req, res) => {
+  const teamId = req.params.team_id;
+  console.log('API CALL: GET TEAM FIXTURES');
+  axios({
+    method: 'GET',
+    url: `https://${host}/v2/fixtures/team/${teamId}/next/50`,
+    headers: {
+      'content-type': 'application/octet-stream',
+      'x-rapidapi-host': host,
+      'x-rapidapi-key': apiKey,
+      useQueryString: true,
+    },
+  })
+    .then((response) => {
+      const { fixtures } = response.data.api;
+      const updateDatabase = footy.updateTeamFixtures(teamId, fixtures);
+      Promise.resolve(updateDatabase)
+        .then(() => res.status(200).send(fixtures))
+        .catch((error) => {
+          console.log(error);
+          res.status(500).send('Unable to update new team fixtures.');
+        });
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send('Unable to retrieve new team fixtures.');
+    });
+};
+
 const getStandings = (req, res) => {
   const leagueId = req.params.league_id;
   const standings = footy.getLeagueStandings(leagueId);
@@ -82,9 +113,26 @@ const getTeam = (req, res) => {
     });
 };
 
+const getFixtures = (req, res) => {
+  const teamId = req.params.team_id;
+  console.log(teamId);
+  const fixtures = footy.getTeamFixtures(teamId);
+  Promise.resolve(fixtures)
+    .then((results) => res.status(200).send(results.fixtures))
+    .catch((err) => {
+      console.log(err);
+      getAndUpdateTeamFixtures(req, res);
+    });
+};
+
 module.exports = {
   getAndUpdateTeamInfo,
   getAndUpdateStandings,
+  getAndUpdateTeamFixtures,
   getStandings,
   getTeam,
+  getFixtures,
 };
+
+
+// https://api-football-v1.p.rapidapi.com/v2/fixtures/team/63/next/50

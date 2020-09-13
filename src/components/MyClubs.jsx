@@ -10,6 +10,7 @@ const LeagueTable = styled.div`
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
   max-height: 300px;
+  min-width: 350px;
   height: 300px;
 
   ::-webkit-scrollbar {
