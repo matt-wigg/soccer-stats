@@ -6,8 +6,7 @@ const LeagueTable = styled.div`
   display: flex;
   flex-flow: column;
   background-color: #fff;
-  max-height: 342px;
-  min-width: 250px;
+  min-width: 350px;
   border-radius: 4px;
   padding: 5px;
   overflow-y: scroll;
@@ -19,13 +18,12 @@ const ClubLogo = styled.div`
   max-height: auto;
   padding: 5px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #f1f3f4;
 `;
 
 const ClubTable = styled.div`
   display: grid;
   grid-template-columns: 100px 1fr;
-  border-bottom: 1px solid #f1f3f4;
+  border-top: 1px solid #f1f3f4;
   border-radius: 4px;
   padding: 5px;
 `;
@@ -43,11 +41,10 @@ const ClubTableRowBody = styled.div`
 
 const ClubInfomation = ({ teamHighlightInfo }) => (
   <section>
-    {console.log(teamHighlightInfo)}
     {teamHighlightInfo.map((team) => (
       <LeagueTable>
         <ClubLogo>
-          <img src={team.logo} alt={team.teamName} />
+          <img src={team.logo} alt={team.teamName} width="125" />
         </ClubLogo>
         <ClubTable>
           <ClubTableRowHead>Club</ClubTableRowHead>
@@ -62,7 +59,11 @@ const ClubInfomation = ({ teamHighlightInfo }) => (
           <ClubTableRowBody>{team.country}</ClubTableRowBody>
         </ClubTable>
         <ClubTable>
-          <ClubTableRowHead>Venue</ClubTableRowHead>
+          <ClubTableRowHead>City</ClubTableRowHead>
+          <ClubTableRowBody>{team.venue_city}</ClubTableRowBody>
+        </ClubTable>
+        <ClubTable>
+          <ClubTableRowHead>Stadium</ClubTableRowHead>
           <ClubTableRowBody>{team.venue_name}</ClubTableRowBody>
         </ClubTable>
         <ClubTable>

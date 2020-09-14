@@ -2,12 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+const FootballTableContainer = styled.div`
+  width: 100%;
+`;
+
 const LeagueTable = styled.div`
   display: flex;
   flex-flow: column;
-  width: 100%;
+  min-width: 100%;
   max-height: 300px;
-  min-width: 850px;
   background-color: #fff;
   overflow-x: hidden;
   border-bottom-right-radius: 4px;
@@ -37,6 +40,7 @@ const LeagueTableHeader = styled.div`
   border-bottom: 1px solid #b2b2b2;
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
+  min-width: 100%;
 `;
 
 const LeagueTableRow = styled.div`
@@ -113,7 +117,6 @@ const LastFive = styled(LastFiveHeader)`
 `;
 
 const ClubRank = styled.div`
-  max-width: 100%;
   max-height: 100%;
   margin: auto;
   display: inline-block;
@@ -121,7 +124,6 @@ const ClubRank = styled.div`
 `;
 
 const ClubLogo = styled.img`
-  max-width: 100%;
   max-height: 100%;
   margin: auto;
   display: inline-block;
@@ -129,7 +131,6 @@ const ClubLogo = styled.img`
 `;
 
 const ClubInfo = styled.div`
-  max-width: 100%;
   max-height: 100%;
   margin: auto;
   display: inline-block;
@@ -137,7 +138,7 @@ const ClubInfo = styled.div`
 `;
 
 const FootballTable = ({ standings, addClubToList }) => (
-  <section>
+  <FootballTableContainer>
     <LeagueTableHeader>
       <Club>Club</Club>
       <MatchesPlayed>MP</MatchesPlayed>
@@ -170,7 +171,7 @@ const FootballTable = ({ standings, addClubToList }) => (
         </LeagueTableRow>
       ))}
     </LeagueTable>
-  </section>
+  </FootballTableContainer>
 );
 
 FootballTable.propTypes = {

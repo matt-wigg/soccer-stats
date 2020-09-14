@@ -17,3 +17,11 @@ export const getTeamInfo = (id, callback) => {
     })
     .catch((err) => console.error(err));
 };
+
+export const getTeamFixtures = (id, callback) => {
+  axios.get(`/football/teams/team/fixtures/${id}`)
+    .then((team) => {
+      callback(team.data);
+    })
+    .catch((err) => console.error(err));
+};

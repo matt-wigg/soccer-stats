@@ -7,7 +7,7 @@ const FixturesTable = styled.div`
   flex-flow: row;
   width: 100%;
   max-height: 400px;
-  max-width: 850px;
+  min-width: 850px;
   flex-wrap: wrap;
   background-color: #fff;
   overflow-x: hidden;
@@ -28,7 +28,7 @@ const FixturesTable = styled.div`
 const LeagueTableHeader = styled.div`
   grid-area: header;
   font-weight: 700;
-  max-width: 850px;
+  min-width: 850px;
   padding: 5px;
   padding-top: 10px;
   background-color: #fff;
@@ -39,38 +39,65 @@ const LeagueTableHeader = styled.div`
 
 const FixtureContainer = styled.div`
   border: 1px solid #f1f3f4;
-  width: 100%;
+  width: 50%;
   min-height: 200px;
   cursor: pointer;
   padding: 5px;
   background-color: #fff;
   display: grid;
   grid-template-areas:
-    "teamOne vs teamTwo"
     "teamOne date teamTwo";
 
   align-content: center;
   justify-content: space-around;
 
   &:hover {
-    background-color: #00d4b1;
+    background-color: #f3f2f2;
   }
 `;
 
 const TeamOne = styled.div`
   grid-area: teamOne;
+  min-width: 100px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  font-weight: 700;
 `;
 
 const TeamTwo = styled.div`
   grid-area: teamTwo;
+  min-width: 100px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  font-weight: 700;
 `;
 
-const VS = styled.div`
-  grid-area: vs;
-`;
+// const VS = styled.div`
+//   grid-area: vs;
+//   min-width: 100px;
+//   display: flex;
+//   font-size: 50px;
+//   flex-flow: column;
+//   align-items: center;
+//   font-weight: 700;
+//   justify-content: flex-end;
+// `;
 
-const Date = styled.div`
+const GameInfoContainer = styled.div`
   grid-area: date
+  min-width: 100px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  font-weight: 700;
+  justify-content: center;
+`;
+
+const GameInfo = styled.span`
+  font-size: 13px;
+  font-weight: 400;
 `;
 
 const Club = styled.div`
@@ -80,18 +107,37 @@ const Club = styled.div`
   padding-left: 10px;
 `;
 
-const TeamStats = ({ standings }) => (
+const parseDate = (date) => new Date(date).toDateString();
+
+const parseTime = (date) => new Date(date).toLocaleTimeString([],
+  { hour: 'numeric', minute: '2-digit', hour12: true });
+
+const TeamStats = ({ fixtures }) => (
   <section>
-    <LeagueTableHeader>
-      <Club>Fixtures</Club>
-    </LeagueTableHeader>
+    {console.log(fixtures)}
+    {fixtures.length ? (
+      <LeagueTableHeader>
+        <Club>Upcoming Fixtures</Club>
+      </LeagueTableHeader>
+    )
+      : null}
     <FixturesTable>
-      {standings.map((team) => (
+
+      {fixtures.map((fixture) => (
         <FixtureContainer>
-          <TeamOne>Leeds</TeamOne>
-          <VS>VS</VS>
-          <Date>DATE</Date>
-          <TeamTwo>Leeds</TeamTwo>
+          <TeamOne>
+            <img src={fixture.homeTeam.logo} alt={fixture.homeTeam.team_name} width="100" />
+            {fixture.homeTeam.team_name}
+          </TeamOne>
+          <GameInfoContainer>
+            <GameInfo>{parseTime(fixture.event_date)}</GameInfo>
+            <GameInfo>{parseDate(fixture.event_date)}</GameInfo>
+            <GameInfo><bold>{fixture.league.name}</bold></GameInfo>
+          </GameInfoContainer>
+          <TeamTwo>
+            <img src={fixture.awayTeam.logo} alt={fixture.awayTeam.team_name} width="100" />
+            {fixture.awayTeam.team_name}
+          </TeamTwo>
         </FixtureContainer>
       ))}
     </FixturesTable>
@@ -99,9 +145,7 @@ const TeamStats = ({ standings }) => (
 );
 
 TeamStats.propTypes = {
-  standings: PropTypes.arrayOf(PropTypes.object).isRequired,
-  addClubToList: PropTypes.func.isRequired,
-
+  fixtures: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default TeamStats;
