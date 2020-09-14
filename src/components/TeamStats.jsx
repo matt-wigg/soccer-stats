@@ -5,8 +5,7 @@ const FixturesTable = styled.div`
   display: flex;
   flex-flow: row;
   width: 100%;
-  max-height: 400px;
-  min-width: 850px;
+  max-height: 326px;
   flex-wrap: wrap;
   background-color: #fff;
   overflow-x: hidden;
@@ -27,7 +26,6 @@ const FixturesTable = styled.div`
 const LeagueTableHeader = styled.div`
   grid-area: header;
   font-weight: 700;
-  min-width: 850px;
   padding: 5px;
   padding-top: 10px;
   background-color: #fff;
@@ -39,7 +37,7 @@ const LeagueTableHeader = styled.div`
 const FixtureContainer = styled.div`
   border: 1px solid #f1f3f4;
   width: 50%;
-  min-height: 200px;
+  min-height: 150px;
   cursor: pointer;
   padding: 5px;
   background-color: #fff;
@@ -47,7 +45,6 @@ const FixtureContainer = styled.div`
   grid-template-areas:
     "teamOne date teamTwo";
 
-  align-content: center;
   justify-content: space-around;
 
   &:hover {
@@ -57,20 +54,28 @@ const FixtureContainer = styled.div`
 
 const TeamOne = styled.div`
   grid-area: teamOne;
-  min-width: 100px;
+  max-width: 100px;
   display: flex;
   flex-flow: column;
   align-items: center;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 500;
+  align-self: center;
+  line-height: 1.2rem;
+  text-align: center;
 `;
 
 const TeamTwo = styled.div`
   grid-area: teamTwo;
-  min-width: 100px;
+  max-width: 100px;
   display: flex;
   flex-flow: column;
+  font-size: 14px;
   align-items: center;
-  font-weight: 700;
+  font-weight: 500;
+  align-self: center;
+  line-height: 1.2rem;
+  text-align: center;
 `;
 
 // const VS = styled.div`
@@ -92,6 +97,7 @@ const GameInfoContainer = styled.div`
   align-items: center;
   font-weight: 700;
   justify-content: center;
+  align-self: center;
 `;
 
 const GameInfo = styled.span`
@@ -123,16 +129,16 @@ const TeamStats = ({ fixtures }) => (
       {fixtures.map((fixture) => (
         <FixtureContainer>
           <TeamOne>
-            <img src={fixture.homeTeam.logo} alt={fixture.homeTeam.team_name} width="100" />
+            <img src={fixture.homeTeam.logo} alt={fixture.homeTeam.team_name} width="60" />
             {fixture.homeTeam.team_name}
           </TeamOne>
           <GameInfoContainer>
             <GameInfo>{parseTime(fixture.event_date)}</GameInfo>
             <GameInfo>{parseDate(fixture.event_date)}</GameInfo>
-            <GameInfo><bold>{fixture.league.name}</bold></GameInfo>
+            <GameInfo>{fixture.league.name}</GameInfo>
           </GameInfoContainer>
           <TeamTwo>
-            <img src={fixture.awayTeam.logo} alt={fixture.awayTeam.team_name} width="100" />
+            <img src={fixture.awayTeam.logo} alt={fixture.awayTeam.team_name} width="60" />
             {fixture.awayTeam.team_name}
           </TeamTwo>
         </FixtureContainer>

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const SearchCountry = styled.div`
   display: flex;
   flex-flow: column;
-  min-width: 25%;
+  min-width: 350px;
   max-height: 300px;
   background-color: #fff;
 

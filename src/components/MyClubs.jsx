@@ -28,7 +28,7 @@ const LeagueTableRow = styled.div`
   grid-template-areas:
     "club remove";
   grid-template-columns: 2fr 1fr;
-  border-top: 1px solid #f1f3f4;
+  border-bottom: 1px solid #f1f3f4;
   cursor: pointer;
   font-weight: normal;
   padding-top: 5px;
@@ -84,10 +84,13 @@ const RemoveClub = styled.div`
   text-align: center;
   border-radius: 4px;
   margin-right: 5px;
-  color: #f44336;
+  color: #fff;
+  background-color: #3f1052;
+  transition: background-color .05s cubic-bezier(.65,.05,.36,1);
 
   &:hover {
-    background-color: #f44336;
+    background-color: #cb1d10;
+    transition-duration: 0s, 0s, .05s;
     color: #fff;
   }
 `;

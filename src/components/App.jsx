@@ -20,6 +20,7 @@ import {
 import { assignCountryOptions, assignLeagueOptions } from '../lib/CountriesAndLeagues';
 
 const MainBody = styled.div`
+  padding-top: 25px;
   display: flex;
   flex-flow: column;
   min-width: 250px;
@@ -28,7 +29,7 @@ const MainBody = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 1600px;
-  width: 80vw;
+  width: 70vw;
 `;
 
 const LeagueTableAndMyClubs = styled.div`
@@ -40,7 +41,7 @@ const LeagueTableAndMyClubs = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 1600px;
-  width: 80vw;
+  width: 70vw;
 `;
 
 const ClubStats = styled.div`
@@ -52,7 +53,7 @@ const ClubStats = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 1600px;
-  width: 80vw;
+  width: 70vw;
 `;
 
 class App extends Component {
@@ -82,7 +83,6 @@ class App extends Component {
   }
 
   addClubToList(id) {
-    console.log(id);
     const { standings, myClubs } = this.state;
     const findTeam = [...standings].map((team) => team.find((e) => e.team_id === id))
       .filter((e) => e !== undefined);
@@ -135,7 +135,10 @@ class App extends Component {
       <MainBody>
         <GlobalStyle />
         <LeagueTableAndMyClubs>
-          <SelectCountry countries={countries} updateCountryLeagueList={this.updateCountryLeagueList} />
+          <SelectCountry
+            countries={countries}
+            updateCountryLeagueList={this.updateCountryLeagueList}
+          />
           <SelectLeague leagues={leagues} updateFootballStandings={this.updateFootballStandings} />
         </LeagueTableAndMyClubs>
         <LeagueTableAndMyClubs>
@@ -146,13 +149,15 @@ class App extends Component {
             highlightClubInfo={this.highlightClubInfo}
           />
         </LeagueTableAndMyClubs>
-        <ClubStats>
-          <ClubInfomation teamHighlightInfo={teamHighlightInfo} />
-          <TeamStats
-            fixtures={teamHighlightFixtures}
-            addClubToList={this.addClubToList}
-          />
-        </ClubStats>
+        {teamHighlightFixtures.length ? (
+          <ClubStats>
+            <ClubInfomation teamHighlightInfo={teamHighlightInfo} />
+            <TeamStats
+              fixtures={teamHighlightFixtures}
+              addClubToList={this.addClubToList}
+            />
+          </ClubStats>
+        ) : null}
       </MainBody>
     );
   }
