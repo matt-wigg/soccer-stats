@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const FootballTableContainer = styled.div`
@@ -152,7 +151,7 @@ const FootballTable = ({ standings, addClubToList }) => (
       <LastFiveHeader>Last 5</LastFiveHeader>
     </LeagueTableHeader>
     <LeagueTable>
-      {standings.map((team) => (
+      {standings.map((group) => group.map((team) => (
         <LeagueTableRow key={team.team_id} onClick={() => addClubToList(team.team_id)}>
           <Club>
             <ClubRank>{team.rank}</ClubRank>
@@ -169,15 +168,9 @@ const FootballTable = ({ standings, addClubToList }) => (
           <Points>{team.points}</Points>
           <LastFive>{team.forme}</LastFive>
         </LeagueTableRow>
-      ))}
+      )))}
     </LeagueTable>
   </FootballTableContainer>
 );
-
-FootballTable.propTypes = {
-  standings: PropTypes.arrayOf(PropTypes.object).isRequired,
-  addClubToList: PropTypes.func.isRequired,
-
-};
 
 export default FootballTable;

@@ -1,6 +1,28 @@
-const { leagueStandings, teamInfo, teamFixtures } = require('../connection');
+const {
+  leagueStandings,
+  teamInfo,
+  teamFixtures,
+  allCountries,
+  countryLeagues,
+} = require('../connection');
 
 // TODO: reduce code reuse
+
+const updateCountries = (id, countries) => new Promise((resolve, reject) => {
+  const query = { _id: id };
+  const update = { _id: id, countries };
+  return allCountries.replaceOne(query, update, { upsert: true })
+    .then((results) => resolve(results))
+    .catch((error) => reject(error));
+});
+
+const updateCountryLeagues = (countryName, leagues) => new Promise((resolve, reject) => {
+  const query = { country: countryName };
+  const update = { country: countryName, leagues };
+  return countryLeagues.replaceOne(query, update, { upsert: true })
+    .then((results) => resolve(results))
+    .catch((error) => reject(error));
+});
 
 const updateLeagueStandings = (id, standings) => new Promise((resolve, reject) => {
   const query = { _id: id };
@@ -22,6 +44,20 @@ const updateTeamFixtures = (id, fixtures) => new Promise((resolve, reject) => {
   const query = { _id: id };
   const update = { _id: id, fixtures };
   return teamFixtures.replaceOne(query, update, { upsert: true })
+    .then((results) => resolve(results))
+    .catch((error) => reject(error));
+});
+
+const getAvailableCountries = (id) => new Promise((resolve, reject) => {
+  const query = { _id: id };
+  return allCountries.findOne(query)
+    .then((results) => resolve(results))
+    .catch((error) => reject(error));
+});
+
+const getAvailableLeagues = (country) => new Promise((resolve, reject) => {
+  const query = { country };
+  return countryLeagues.findOne(query)
     .then((results) => resolve(results))
     .catch((error) => reject(error));
 });
@@ -48,9 +84,13 @@ const getTeamFixtures = (id) => new Promise((resolve, reject) => {
 });
 
 module.exports = {
+  updateCountries,
+  updateCountryLeagues,
   updateLeagueStandings,
   updateTeamInfo,
   updateTeamFixtures,
+  getAvailableCountries,
+  getAvailableLeagues,
   getLeagueStandings,
   getTeamInfo,
   getTeamFixtures,

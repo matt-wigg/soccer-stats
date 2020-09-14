@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const FixturesTable = styled.div`
@@ -114,7 +113,6 @@ const parseTime = (date) => new Date(date).toLocaleTimeString([],
 
 const TeamStats = ({ fixtures }) => (
   <section>
-    {console.log(fixtures)}
     {fixtures.length ? (
       <LeagueTableHeader>
         <Club>Upcoming Fixtures</Club>
@@ -122,7 +120,6 @@ const TeamStats = ({ fixtures }) => (
     )
       : null}
     <FixturesTable>
-
       {fixtures.map((fixture) => (
         <FixtureContainer>
           <TeamOne>
@@ -143,9 +140,5 @@ const TeamStats = ({ fixtures }) => (
     </FixturesTable>
   </section>
 );
-
-TeamStats.propTypes = {
-  fixtures: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
 
 export default TeamStats;

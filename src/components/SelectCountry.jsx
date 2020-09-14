@@ -13,25 +13,13 @@ const SearchCountry = styled.div`
   border-bottom-left-radius: 4px;
 `;
 
-const sortByOptions = [
-  { value: 'Most relevant', label: 'Most relevant' },
-  { value: 'Includes customer photos', label: 'Includes customer photos' },
-  { value: 'Most recent', label: 'Most recent' },
-  { value: 'Most helpful', label: 'Most helpful' },
-  { value: 'Includes customer photos', label: 'Includes customer photos' },
-  { value: 'Most recent', label: 'Most recent' },
-  { value: 'Most helpful', label: 'Most helpful' },
-  { value: 'Includes customer photos', label: 'Includes customer photos' },
-  { value: 'Most recent', label: 'Most recent' },
-  { value: 'Most helpful', label: 'Most helpful' },
-];
-
-const SelectCountry = () => (
+const SelectCountry = ({ countries, updateCountryLeagueList }) => (
   <SearchCountry>
     <Select
       label="Single select"
-      options={sortByOptions}
+      options={countries}
       placeholder="Select Country"
+      onChange={updateCountryLeagueList}
       theme={theme => ({
         ...theme,
         borderRadius: 0,

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const LeagueTable = styled.div`
@@ -95,7 +94,6 @@ const RemoveClub = styled.div`
 
 const MyClubs = ({ myClubs, removeClubFromList, highlightClubInfo }) => (
   <section>
-    {console.log(myClubs)}
     <LeagueTableHeader>
       <Club>My Clubs</Club>
     </LeagueTableHeader>

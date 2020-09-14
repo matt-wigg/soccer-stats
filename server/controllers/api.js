@@ -3,10 +3,40 @@ const footy = require('../database/models/query');
 const { host, apiKey } = require('./config');
 
 // TODO: Reduce code-reuse
+// https://api-football-v1.p.rapidapi.com/v2/leagues/type/league/england/2019
+// app.get('/api/tabel/standings/:league_id', fb.getAndUpdateStandings);
+
+const getAndUpdateCountries = (req, res) => {
+  console.log('API CALL: UPDATE COUNTRIES');
+  axios({
+    method: 'GET',
+    url: `https://${host}/v2/countries`,
+    headers: {
+      'content-type': 'application/octet-stream',
+      'x-rapidapi-host': host,
+      'x-rapidapi-key': apiKey,
+      useQueryString: true,
+    },
+  })
+    .then((response) => {
+      const { countries } = response.data.api;
+      const updateDatabase = footy.updateCountries(1, countries);
+      Promise.resolve(updateDatabase)
+        .then(() => res.status(200).send(countries))
+        .catch((error) => {
+          console.log(error);
+          res.status(500).send('Unable to update available countries.');
+        });
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send('Unable to retrieve new countries.');
+    });
+};
 
 const getAndUpdateStandings = (req, res) => {
   const leagueId = req.params.league_id;
-  console.log('API CALL: updateStandings');
+  console.log('API CALL: UPDATE STANDINGS');
   axios({
     method: 'GET',
     url: `https://${host}/v2/leagueTable/${leagueId}`,
@@ -24,12 +54,41 @@ const getAndUpdateStandings = (req, res) => {
         .then(() => res.status(200).send(standings))
         .catch((error) => {
           console.log(error);
-          res.status(500).send('Unable to update new standings.');
+          res.status(500).send('Unable to update available countries.');
         });
     })
     .catch((error) => {
       console.log(error);
-      res.status(500).send('Unable to retrieve new standings.');
+      res.status(500).send('Unable to retrieve new countries.');
+    });
+};
+// /v2/leagues/type/league/england/2019
+const getAndUpdateLeagues = (req, res) => {
+  const countryName = req.params.country;
+  console.log('API CALL: UPDATE COUNTRY LEAGUES');
+  axios({
+    method: 'GET',
+    url: `https://${host}/v2/leagues/type/league/${countryName}/2020`,
+    headers: {
+      'content-type': 'application/octet-stream',
+      'x-rapidapi-host': host,
+      'x-rapidapi-key': apiKey,
+      useQueryString: true,
+    },
+  })
+    .then((response) => {
+      const { leagues } = response.data.api;
+      const updateDatabase = footy.updateCountryLeagues(countryName, leagues);
+      Promise.resolve(updateDatabase)
+        .then(() => res.status(200).send(leagues))
+        .catch((error) => {
+          console.log(error);
+          res.status(500).send('Unable to update new leagues.');
+        });
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send('Unable to retrieve new leagues.');
     });
 };
 
@@ -91,14 +150,39 @@ const getAndUpdateTeamFixtures = (req, res) => {
     });
 };
 
+const getCountries = (req, res) => {
+  const countries = footy.getAvailableCountries(1);
+  Promise.resolve(countries)
+    .then((results) => res.status(200).send(results.countries))
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send('Unable to retrieve standings from database.');
+    });
+};
+
+const getLeagues = (req, res) => {
+  const countryName = req.params.country;
+  const countries = footy.getAvailableLeagues(countryName);
+  Promise.resolve(countries)
+    .then((results) => {
+      res.status(200).send(results.leagues);
+    })
+    .catch((error) => {
+      console.log(error);
+      getAndUpdateLeagues(req, res);
+    });
+};
+
 const getStandings = (req, res) => {
   const leagueId = req.params.league_id;
   const standings = footy.getLeagueStandings(leagueId);
   Promise.resolve(standings)
-    .then((results) => res.status(200).send(results.standings[0]))
+    .then((results) => {
+      res.status(200).send(results.standings);
+    })
     .catch((error) => {
       console.log(error);
-      res.status(500).send('Unable to retrieve standings from database.');
+      getAndUpdateStandings(req, res);
     });
 };
 
@@ -115,7 +199,6 @@ const getTeam = (req, res) => {
 
 const getFixtures = (req, res) => {
   const teamId = req.params.team_id;
-  console.log(teamId);
   const fixtures = footy.getTeamFixtures(teamId);
   Promise.resolve(fixtures)
     .then((results) => res.status(200).send(results.fixtures))
@@ -126,13 +209,14 @@ const getFixtures = (req, res) => {
 };
 
 module.exports = {
+  getAndUpdateCountries,
+  getAndUpdateLeagues,
   getAndUpdateTeamInfo,
   getAndUpdateStandings,
   getAndUpdateTeamFixtures,
+  getCountries,
+  getLeagues,
   getStandings,
   getTeam,
   getFixtures,
 };
-
-
-// https://api-football-v1.p.rapidapi.com/v2/fixtures/team/63/next/50

@@ -9,7 +9,15 @@ import MyClubs from './MyClubs';
 import ClubInfomation from './ClubInfo';
 import TeamStats from './TeamStats';
 
-import { getFootballStandings, getTeamInfo, getTeamFixtures } from '../lib/DatabaseRequests';
+import {
+  getFootballStandings,
+  getFootballCountries,
+  getFootballLeaguess,
+  getTeamInfo,
+  getTeamFixtures,
+} from '../lib/DatabaseRequests';
+
+import { assignCountryOptions, assignLeagueOptions } from '../lib/CountriesAndLeagues';
 
 const MainBody = styled.div`
   display: flex;
@@ -20,7 +28,7 @@ const MainBody = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 1600px;
-  width: 90vw;
+  width: 80vw;
 `;
 
 const LeagueTableAndMyClubs = styled.div`
@@ -32,7 +40,7 @@ const LeagueTableAndMyClubs = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 1600px;
-  width: 90vw;
+  width: 80vw;
 `;
 
 const ClubStats = styled.div`
@@ -44,7 +52,7 @@ const ClubStats = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 1600px;
-  width: 90vw;
+  width: 80vw;
 `;
 
 class App extends Component {
@@ -52,6 +60,8 @@ class App extends Component {
     super();
     this.state = {
       standings: [],
+      countries: [],
+      leagues: [],
       myClubs: [],
       teamHighlightInfo: [],
       teamHighlightFixtures: [],
@@ -59,15 +69,23 @@ class App extends Component {
     this.addClubToList = this.addClubToList.bind(this);
     this.removeClubFromList = this.removeClubFromList.bind(this);
     this.highlightClubInfo = this.highlightClubInfo.bind(this);
+    this.updateCountryLeagueList = this.updateCountryLeagueList.bind(this);
+    this.updateFootballStandings = this.updateFootballStandings.bind(this);
   }
 
   componentDidMount() {
-    getFootballStandings((standings) => this.setState({ standings }));
+    getFootballStandings(2790, (standings) => this.setState({ standings }));
+    getFootballCountries((availableCountries) => {
+      const countries = assignCountryOptions(availableCountries);
+      this.setState({ countries });
+    });
   }
 
   addClubToList(id) {
+    console.log(id);
     const { standings, myClubs } = this.state;
-    const findTeam = [...standings].filter((e) => e.team_id === id);
+    const findTeam = [...standings].map((team) => team.find((e) => e.team_id === id))
+      .filter((e) => e !== undefined);
     if (!myClubs.some((club) => club.team_id === id)) {
       this.setState((prevState) => ({
         myClubs: [findTeam[0], ...prevState.myClubs],
@@ -85,15 +103,30 @@ class App extends Component {
     getTeamInfo(id, (teamHighlightInfo) => {
       this.setState({ teamHighlightInfo });
     });
-
     getTeamFixtures(id, (teamHighlightFixtures) => {
       this.setState({ teamHighlightFixtures });
     });
   }
 
+  updateCountryLeagueList(country) {
+    const { value } = country;
+    getFootballLeaguess(value, (allLeagues) => {
+      const leagues = assignLeagueOptions(allLeagues);
+      this.setState({ leagues });
+    });
+  }
+
+  updateFootballStandings(league) {
+    const { value } = league;
+    console.log(value);
+    getFootballStandings(value, (standings) => this.setState({ standings }));
+  }
+
   render() {
     const {
       standings,
+      countries,
+      leagues,
       myClubs,
       teamHighlightInfo,
       teamHighlightFixtures,
@@ -102,8 +135,8 @@ class App extends Component {
       <MainBody>
         <GlobalStyle />
         <LeagueTableAndMyClubs>
-          <SelectCountry />
-          <SelectLeague />
+          <SelectCountry countries={countries} updateCountryLeagueList={this.updateCountryLeagueList} />
+          <SelectLeague leagues={leagues} updateFootballStandings={this.updateFootballStandings} />
         </LeagueTableAndMyClubs>
         <LeagueTableAndMyClubs>
           <FootballTable standings={standings} addClubToList={this.addClubToList} />
