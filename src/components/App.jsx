@@ -7,7 +7,9 @@ import SelectLeague from './SelectLeague';
 import FootballTable from './FootballTable';
 import MyClubs from './MyClubs';
 import ClubInfomation from './ClubInfo';
-import TeamStats from './TeamStats';
+import TeamFixtures from './TeamFixtures';
+import TeamPlayers from './TeamPlayers';
+import PlayerStats from './PlayerStats';
 
 import {
   getFootballStandings,
@@ -15,6 +17,8 @@ import {
   getFootballLeaguess,
   getTeamInfo,
   getTeamFixtures,
+  getTeamPlayers,
+  getPlayerStats,
 } from '../lib/DatabaseRequests';
 
 import { assignCountryOptions, assignLeagueOptions } from '../lib/CountriesAndLeagues';
@@ -64,12 +68,15 @@ class App extends Component {
       countries: [],
       leagues: [],
       myClubs: [],
+      teamPlayers: [],
       teamHighlightInfo: [],
+      playerHighlightInfo: [],
       teamHighlightFixtures: [],
     };
     this.addClubToList = this.addClubToList.bind(this);
     this.removeClubFromList = this.removeClubFromList.bind(this);
     this.highlightClubInfo = this.highlightClubInfo.bind(this);
+    this.highlightPlayerInfo = this.highlightPlayerInfo.bind(this);
     this.updateCountryLeagueList = this.updateCountryLeagueList.bind(this);
     this.updateFootballStandings = this.updateFootballStandings.bind(this);
   }
@@ -106,6 +113,15 @@ class App extends Component {
     getTeamFixtures(id, (teamHighlightFixtures) => {
       this.setState({ teamHighlightFixtures });
     });
+    getTeamPlayers(id, (teamPlayers) => {
+      this.setState({ teamPlayers });
+    });
+  }
+
+  highlightPlayerInfo(id) {
+    getPlayerStats(id, (playerHighlightInfo) => {
+      this.setState({ playerHighlightInfo });
+    });
   }
 
   updateCountryLeagueList(country) {
@@ -118,7 +134,6 @@ class App extends Component {
 
   updateFootballStandings(league) {
     const { value } = league;
-    console.log(value);
     getFootballStandings(value, (standings) => this.setState({ standings }));
   }
 
@@ -128,7 +143,9 @@ class App extends Component {
       countries,
       leagues,
       myClubs,
+      teamPlayers,
       teamHighlightInfo,
+      playerHighlightInfo,
       teamHighlightFixtures,
     } = this.state;
     return (
@@ -152,12 +169,16 @@ class App extends Component {
         {teamHighlightFixtures.length ? (
           <ClubStats>
             <ClubInfomation teamHighlightInfo={teamHighlightInfo} />
-            <TeamStats
+            <TeamFixtures
               fixtures={teamHighlightFixtures}
               addClubToList={this.addClubToList}
             />
           </ClubStats>
         ) : null}
+        <ClubStats>
+          <TeamPlayers players={teamPlayers} highlightPlayerInfo={this.highlightPlayerInfo} />
+          <PlayerStats playerHighlightInfo={playerHighlightInfo} />
+        </ClubStats>
       </MainBody>
     );
   }

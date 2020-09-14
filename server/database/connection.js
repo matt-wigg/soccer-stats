@@ -10,6 +10,8 @@ const teamInfo = client.db('football').collection('team');
 const teamFixtures = client.db('football').collection('fixtures');
 const allCountries = client.db('football').collection('countries');
 const countryLeagues = client.db('football').collection('leagues');
+const teamPlayers = client.db('football').collection('players');
+const playerStats = client.db('football').collection('player-stats')
 
 module.exports = {
   leagueStandings,
@@ -17,4 +19,6 @@ module.exports = {
   teamFixtures,
   allCountries,
   countryLeagues,
+  teamPlayers,
+  playerStats,
 };

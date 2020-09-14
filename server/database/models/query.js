@@ -4,6 +4,8 @@ const {
   teamFixtures,
   allCountries,
   countryLeagues,
+  teamPlayers,
+  playerStats,
 } = require('../connection');
 
 // TODO: reduce code reuse
@@ -48,6 +50,22 @@ const updateTeamFixtures = (id, fixtures) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const updateTeamPlayers = (id, players) => new Promise((resolve, reject) => {
+  const query = { _id: id };
+  const update = { _id: id, players };
+  return teamPlayers.replaceOne(query, update, { upsert: true })
+    .then((results) => resolve(results))
+    .catch((error) => reject(error));
+});
+
+const updatePlayerStats = (id, player) => new Promise((resolve, reject) => {
+  const query = { _id: id };
+  const update = { _id: id, player };
+  return playerStats.replaceOne(query, update, { upsert: true })
+    .then((results) => resolve(results))
+    .catch((error) => reject(error));
+});
+
 const getAvailableCountries = (id) => new Promise((resolve, reject) => {
   const query = { _id: id };
   return allCountries.findOne(query)
@@ -83,15 +101,33 @@ const getTeamFixtures = (id) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getTeamPlayers = (id) => new Promise((resolve, reject) => {
+  const query = { _id: id };
+  return teamPlayers.findOne(query)
+    .then((results) => resolve(results))
+    .catch((error) => reject(error));
+});
+
+const getTeamPlayerStats = (id) => new Promise((resolve, reject) => {
+  const query = { _id: id };
+  return playerStats.findOne(query)
+    .then((results) => resolve(results))
+    .catch((error) => reject(error));
+});
+
 module.exports = {
   updateCountries,
   updateCountryLeagues,
   updateLeagueStandings,
   updateTeamInfo,
   updateTeamFixtures,
+  updateTeamPlayers,
+  updatePlayerStats,
   getAvailableCountries,
   getAvailableLeagues,
   getLeagueStandings,
   getTeamInfo,
   getTeamFixtures,
+  getTeamPlayers,
+  getTeamPlayerStats,
 };

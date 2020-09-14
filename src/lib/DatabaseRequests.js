@@ -41,3 +41,19 @@ export const getTeamFixtures = (id, callback) => {
     })
     .catch((err) => console.error(err));
 };
+
+export const getTeamPlayers = (id, callback) => {
+  axios.get(`/football/players/squad/${id}/2020-2021`)
+    .then((players) => {
+      callback(players.data);
+    })
+    .catch((err) => console.error(err));
+};
+
+export const getPlayerStats = (id, callback) => {
+  axios.get(`/football/players/player/${id}/2020-2021`)
+    .then((player) => {
+      callback(player.data);
+    })
+    .catch((err) => console.error(err));
+};

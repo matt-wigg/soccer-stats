@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FootballTableContainer = styled.div`
-  min-width: 715px;
+  width: 100%;
 `;
 
 const LeagueTable = styled.div`

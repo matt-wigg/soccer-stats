@@ -78,17 +78,6 @@ const TeamTwo = styled.div`
   text-align: center;
 `;
 
-// const VS = styled.div`
-//   grid-area: vs;
-//   min-width: 100px;
-//   display: flex;
-//   font-size: 50px;
-//   flex-flow: column;
-//   align-items: center;
-//   font-weight: 700;
-//   justify-content: flex-end;
-// `;
-
 const GameInfoContainer = styled.div`
   grid-area: date
   min-width: 100px;
@@ -117,7 +106,7 @@ const parseDate = (date) => new Date(date).toDateString();
 const parseTime = (date) => new Date(date).toLocaleTimeString([],
   { hour: 'numeric', minute: '2-digit', hour12: true });
 
-const TeamStats = ({ fixtures }) => (
+const TeamFixtures = ({ fixtures }) => (
   <section>
     {fixtures.length ? (
       <LeagueTableHeader>
@@ -147,4 +136,4 @@ const TeamStats = ({ fixtures }) => (
   </section>
 );
 
-export default TeamStats;
+export default TeamFixtures;

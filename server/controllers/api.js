@@ -150,6 +150,64 @@ const getAndUpdateTeamFixtures = (req, res) => {
     });
 };
 
+const getAndUpdateTeamPlayers = (req, res) => {
+  const teamId = req.params.team_id;
+  console.log('API CALL: GET TEAM PLAYERS');
+  axios({
+    method: 'GET',
+    url: `https://${host}/v2/players/squad/${teamId}/2020-2021`,
+    headers: {
+      'content-type': 'application/octet-stream',
+      'x-rapidapi-host': host,
+      'x-rapidapi-key': apiKey,
+      useQueryString: true,
+    },
+  })
+    .then((response) => {
+      const { players } = response.data.api;
+      const updateDatabase = footy.updateTeamPlayers(teamId, players);
+      Promise.resolve(updateDatabase)
+        .then(() => res.status(200).send(players))
+        .catch((error) => {
+          console.log(error);
+          res.status(500).send('Unable to update new team players.');
+        });
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send('Unable to retrieve new team players.');
+    });
+};
+
+const getAndUpdatePlayerStats = (req, res) => {
+  const playerID = req.params.player_id;
+  console.log('API CALL: GET PLAYER STATS');
+  axios({
+    method: 'GET',
+    url: `https://${host}/v2/players/player/${playerID}/2020-2021`,
+    headers: {
+      'content-type': 'application/octet-stream',
+      'x-rapidapi-host': host,
+      'x-rapidapi-key': apiKey,
+      useQueryString: true,
+    },
+  })
+    .then((response) => {
+      const { players } = response.data.api;
+      const updateDatabase = footy.updatePlayerStats(playerID, players);
+      Promise.resolve(updateDatabase)
+        .then(() => res.status(200).send(players))
+        .catch((error) => {
+          console.log(error);
+          res.status(500).send('Unable to update new player stats.');
+        });
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send('Unable to retrieve new players stats.');
+    });
+};
+
 const getCountries = (req, res) => {
   const countries = footy.getAvailableCountries(1);
   Promise.resolve(countries)
@@ -208,15 +266,41 @@ const getFixtures = (req, res) => {
     });
 };
 
+const getPlayers = (req, res) => {
+  const teamId = req.params.team_id;
+  const players = footy.getTeamPlayers(teamId);
+  Promise.resolve(players)
+    .then((results) => res.status(200).send(results.players))
+    .catch((err) => {
+      console.log(err);
+      getAndUpdateTeamPlayers(req, res);
+    });
+};
+
+const getPlayerStats = (req, res) => {
+  const teamId = req.params.player_id;
+  const players = footy.getTeamPlayerStats(teamId);
+  Promise.resolve(players)
+    .then((results) => res.status(200).send(results.player))
+    .catch((err) => {
+      console.log(err);
+      getAndUpdatePlayerStats(req, res);
+    });
+};
+
 module.exports = {
   getAndUpdateCountries,
   getAndUpdateLeagues,
   getAndUpdateTeamInfo,
   getAndUpdateStandings,
   getAndUpdateTeamFixtures,
+  getAndUpdateTeamPlayers,
+  getAndUpdatePlayerStats,
   getCountries,
   getLeagues,
   getStandings,
   getTeam,
   getFixtures,
+  getPlayers,
+  getPlayerStats,
 };
