@@ -8,7 +8,7 @@ const client = new MongoClient(`mongodb://${username}:${password}@${ip}`,
 client.connect().then(() => console.log('connected')).catch((error) => console.log(error));
 
 const leagueStandings = client.db('football').collection('standings');
-const teamInfo = client.db('football').collection('team');
+const teamInfo = client.db('football').collection('teams');
 const teamFixtures = client.db('football').collection('fixtures');
 const allCountries = client.db('football').collection('countries');
 const countryLeagues = client.db('football').collection('leagues');
