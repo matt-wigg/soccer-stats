@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const axios = require('axios');
 const footy = require('../database/models/query');
 const { host, apiKey } = require('./config');
