@@ -23,7 +23,7 @@ Once the project moves into development, the press release can be used as a touc
   > For soccer fans around the world who wish to follow the statistics of their favourite teams.
 
 ## Summary ##
-  > Do you find yourself searching all over the web for football results and statistics? Well, now you can view all that information in one, easy to use application! Get real-time, up-to-date statistics on teams across the globe. Want that competitive fantasy league edge? Or maybe you just want to eat, sleep, and breathe football? Soccer Stats allows you to follow as many teams as you like so you'll never again be out of the footballing loop!
+  > Do you find yourself searching all over the web for soccer results and statistics? Well, now you can view all that information in one, easy to use application! Get real-time, up-to-date statistics on teams across the globe. Want that competitive fantasy league edge? Or maybe you just want to eat, sleep, and breathe soccer? Soccer Stats allows you to follow as many teams as you like so you'll never again be out of the soccering loop!
 
 ## Problem ##
   > Centralizes soccer statistics, allowing users to easily track their favorite teams performances, fixtures, and players.
