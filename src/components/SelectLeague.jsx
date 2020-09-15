@@ -4,13 +4,13 @@ import Select from 'react-select';
 import styled from 'styled-components';
 
 const SearchCountry = styled.div`
+  background-color: #fff;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   display: flex;
   flex-flow: column;
-  min-width: 350px;
   max-height: 300px;
-  background-color: #fff;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
+  min-width: 350px;
 `;
 
 const SelectLeague = ({ leagues, updateFootballStandings }) => (

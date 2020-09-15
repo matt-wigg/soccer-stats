@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import App from './components/App';
+import SoccerStats from './components/SoccerStats';
 
-ReactDOM.render(<App />, document.getElementById('football'));
+ReactDOM.render(<SoccerStats />, document.getElementById('football'));

@@ -4,12 +4,12 @@ import { GlobalStyle } from '../assets/styles';
 
 import SelectCountry from './SelectCountry';
 import SelectLeague from './SelectLeague';
-import FootballTable from './FootballTable';
+import LeagueStandings from './LeagueStandings';
 import MyClubs from './MyClubs';
 import ClubInfomation from './ClubInfo';
 import TeamFixtures from './TeamFixtures';
 import TeamPlayers from './TeamPlayers';
-import PlayerStats from './PlayerStats';
+import PlayerHighlightedStats from './PlayerHighlightedStats';
 
 import {
   getFootballStandings,
@@ -24,41 +24,29 @@ import {
 import { assignCountryOptions, assignLeagueOptions } from '../lib/CountriesAndLeagues';
 
 const MainBody = styled.div`
-  padding-top: 5px;
-  margin-bottom: 100px;
+  aligh-items: center;
   display: flex;
   flex-flow: column;
-  min-width: 250px;
   grid-gap: 10px 10px;
-  aligh-items: center;
+  margin-bottom: 100px;
   margin-left: auto;
   margin-right: auto;
   max-width: 1600px;
+  min-width: 250px;
+  padding-top: 5px;
   width: 80vw;
 `;
 
-const LeagueTableAndMyClubs = styled.div`
+const ClubInformationSection = styled.div`
+  aligh-items: center;
   display: flex;
   flex-flow: row;
-  min-width: 250px;
   grid-gap: 10px 10px;
-  aligh-items: center;
   margin-left: auto;
   margin-right: auto;
-  max-width: 1600px;
-  width: 80vw;
-`;
-
-const ClubStats = styled.div`
-  display: flex;
-  flex-flow: row;
-  min-width: 250px;
   max-height: 365px;
-  grid-gap: 10px 10px;
-  aligh-items: center;
-  margin-left: auto;
-  margin-right: auto;
   max-width: 1600px;
+  min-width: 250px;
   width: 80vw;
 `;
 
@@ -84,6 +72,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    // leeds united placeholders
     getFootballStandings(2790, (standings) => {
       this.setState({ standings });
       this.highlightClubInfo(63);
@@ -118,18 +107,12 @@ class App extends Component {
     getTeamInfo(id, (teamHighlightInfo) => {
       this.setState({ teamHighlightInfo });
     });
-    getTeamFixtures(id, (teamHighlightFixtures) => {
-      this.setState({ teamHighlightFixtures });
-    });
-    getTeamPlayers(id, (teamPlayers) => {
-      this.setState({ teamPlayers });
-    });
+    getTeamFixtures(id, (teamHighlightFixtures) => this.setState({ teamHighlightFixtures }));
+    getTeamPlayers(id, (teamPlayers) => this.setState({ teamPlayers }));
   }
 
   highlightPlayerInfo(id) {
-    getPlayerStats(id, (playerHighlightInfo) => {
-      this.setState({ playerHighlightInfo });
-    });
+    getPlayerStats(id, (playerHighlightInfo) => this.setState({ playerHighlightInfo }));
   }
 
   updateCountryLeagueList(country) {
@@ -159,39 +142,46 @@ class App extends Component {
     return (
       <MainBody>
         <GlobalStyle />
-        <LeagueTableAndMyClubs>
+        <ClubInformationSection>
           <SelectCountry
             countries={countries}
             updateCountryLeagueList={this.updateCountryLeagueList}
           />
-          <SelectLeague leagues={leagues} updateFootballStandings={this.updateFootballStandings} />
-        </LeagueTableAndMyClubs>
+          <SelectLeague
+            leagues={leagues}
+            updateFootballStandings={this.updateFootballStandings}
+          />
+        </ClubInformationSection>
         {standings.length ? (
-          <LeagueTableAndMyClubs>
-            <FootballTable standings={standings} addClubToList={this.addClubToList} />
+          <ClubInformationSection>
+            <LeagueStandings
+              standings={standings}
+              addClubToList={this.addClubToList}
+            />
             <MyClubs
               myClubs={myClubs}
               removeClubFromList={this.removeClubFromList}
               highlightClubInfo={this.highlightClubInfo}
             />
-          </LeagueTableAndMyClubs>
+          </ClubInformationSection>
         ) : null}
         {teamHighlightFixtures.length ? (
-          <ClubStats>
+          <ClubInformationSection>
             <ClubInfomation teamHighlightInfo={teamHighlightInfo} />
             <TeamFixtures
               fixtures={teamHighlightFixtures}
               addClubToList={this.addClubToList}
             />
-          </ClubStats>
+          </ClubInformationSection>
         ) : null}
         {teamPlayers.length ? (
-          <ClubStats>
-            <TeamPlayers players={teamPlayers} highlightPlayerInfo={this.highlightPlayerInfo} />
-            {playerHighlightInfo.length ? (
-              <PlayerStats playerHighlightInfo={playerHighlightInfo} />
-            ) : null}
-          </ClubStats>
+          <ClubInformationSection>
+            <TeamPlayers
+              players={teamPlayers}
+              highlightPlayerInfo={this.highlightPlayerInfo}
+            />
+            <PlayerHighlightedStats playerHighlightInfo={playerHighlightInfo} />
+          </ClubInformationSection>
         ) : null}
       </MainBody>
     );

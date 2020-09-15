@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const PlayerStatsContainer = styled.div`
+  background-color: #fff;
+  border-radius: 4px;
   display: flex;
   flex-flow: column;
-  background-color: #fff;
-  min-width: 350px;
-  border-radius: 4px;
-  padding: 5px;
-  overflow-y: scroll;
-  overflow-x: hidden;
   max-height: 367px;
   min-height: 367px;
+  min-width: 350px;
+  padding: 5px;
+  overflow-x: hidden;
+  overflow-y: scroll;
 
   ::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -20,26 +20,26 @@ const PlayerStatsContainer = styled.div`
   }
 
   ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    border: 1px solid #f1f3f4;
     background-color: #00d4b1;
+    border: 1px solid #f1f3f4;
+    border-radius: 4px;
   }
 `;
 
 const PlayerStatsTableContainer = styled.div`
+  background-color: #fff;
+  border-radius: 4px;
   display: flex;
   flex-flow: column;
-  background-color: #fff;
   min-width: 350px;
-  border-radius: 4px;
   padding: 5px;
 `;
 
 const PlayerStatsTable = styled.div`
-  display: grid;
-  grid-template-columns: 150px 1fr;
   border-bottom: 1px solid #f1f3f4;
   border-radius: 4px;
+  display: grid;
+  grid-template-columns: 150px 1fr;
   padding: 5px;
 `;
 

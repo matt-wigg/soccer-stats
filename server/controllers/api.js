@@ -3,8 +3,6 @@ const footy = require('../database/models/query');
 const { host, apiKey } = require('./config');
 
 // TODO: Reduce code-reuse
-// https://api-football-v1.p.rapidapi.com/v2/leagues/type/league/england/2019
-// app.get('/api/tabel/standings/:league_id', fb.getAndUpdateStandings);
 
 const getAndUpdateCountries = (req, res) => {
   console.log('API CALL: UPDATE COUNTRIES');
@@ -62,7 +60,7 @@ const getAndUpdateStandings = (req, res) => {
       res.status(500).send('Unable to retrieve new countries.');
     });
 };
-// /v2/leagues/type/league/england/2019
+
 const getAndUpdateLeagues = (req, res) => {
   const countryName = req.params.country;
   console.log('API CALL: UPDATE COUNTRY LEAGUES');

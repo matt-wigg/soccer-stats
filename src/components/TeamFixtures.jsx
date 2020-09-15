@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const FixturesTable = styled.div`
+  background-color: #fff;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   display: flex;
   flex-flow: row;
-  width: 100%;
+  flex-wrap: wrap;
   max-height: 325px;
   min-height: 325px;
-  flex-wrap: wrap;
-  background-color: #fff;
   overflow-x: hidden;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
+  width: 100%;
 
   ::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -20,72 +20,70 @@ const FixturesTable = styled.div`
   }
 
   ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    border: 1px solid #f1f3f4;
     background-color: #00d4b1;
+    border: 1px solid #f1f3f4;
+    border-radius: 4px;
   }
 `;
 
-const LeagueTableHeader = styled.div`
-  grid-area: header;
-  font-weight: 700;
-  padding: 5px;
-  padding-top: 10px;
+const FixturesTableHeader = styled.div`
   background-color: #fff;
   border-bottom: 1px solid #b2b2b2;
-  border-top-right-radius: 4px;
   border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  font-weight: 700;
+  grid-area: header;
+  padding: 5px;
+  padding-top: 10px;
 `;
 
 const FixtureContainer = styled.div`
-  border: 1px solid #f1f3f4;
-  width: 50%;
-  min-height: 150px;
-  padding: 5px;
   background-color: #fff;
+  border: 1px solid #f1f3f4;
   display: grid;
   grid-template-areas:
     "teamOne date teamTwo";
-
   justify-content: space-around;
-
+  min-height: 150px;
+  padding: 5px;
+  width: 50%;
 `;
 
 const TeamOne = styled.div`
-  grid-area: teamOne;
-  max-width: 100px;
+  align-items: center;
+  align-self: center;
   display: flex;
   flex-flow: column;
-  align-items: center;
   font-size: 14px;
   font-weight: 500;
-  align-self: center;
+  grid-area: teamOne;
   line-height: 1.2rem;
+  max-width: 100px;
   text-align: center;
 `;
 
 const TeamTwo = styled.div`
-  grid-area: teamTwo;
-  max-width: 100px;
+  align-items: center;
+  align-self: center;
   display: flex;
   flex-flow: column;
   font-size: 14px;
-  align-items: center;
   font-weight: 500;
-  align-self: center;
+  grid-area: teamTwo;
   line-height: 1.2rem;
+  max-width: 100px;
   text-align: center;
 `;
 
 const GameInfoContainer = styled.div`
-  grid-area: date
-  min-width: 100px;
+  align-items: center;
+  align-self: center;
   display: flex;
   flex-flow: column;
-  align-items: center;
   font-weight: 700;
+  grid-area: date
   justify-content: center;
-  align-self: center;
+  min-width: 100px;
 `;
 
 const GameInfo = styled.span`
@@ -94,8 +92,8 @@ const GameInfo = styled.span`
 `;
 
 const Club = styled.div`
-  grid-area: club;
   display: inline-block;
+  grid-area: club;
   height: 20px;
   padding-left: 10px;
 `;
@@ -107,9 +105,9 @@ const parseTime = (date) => new Date(date).toLocaleTimeString([],
 const TeamFixtures = ({ fixtures }) => (
   <section>
     {fixtures.length ? (
-      <LeagueTableHeader>
+      <FixturesTableHeader>
         <Club>Upcoming Fixtures</Club>
-      </LeagueTableHeader>
+      </FixturesTableHeader>
     )
       : null}
     <FixturesTable>

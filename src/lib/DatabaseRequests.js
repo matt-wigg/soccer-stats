@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 import axios from 'axios';
 
-// eslint-disable-next-line import/prefer-default-export
 export const getFootballStandings = (id = 2790, callback) => {
   axios.get(`/football/standings/${id}`)
     .then((standings) => {

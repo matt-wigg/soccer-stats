@@ -6,14 +6,14 @@ const ClubInfoContainer = styled.div`
   max-height: 365px;
 `;
 
-const LeagueTable = styled.div`
+const ClubInfoTable = styled.div`
+  background-color: #fff;
+  border-radius: 4px;
   display: flex;
   flex-flow: column;
-  background-color: #fff;
-  min-width: 350px;
   max-height: 366px;
   min-height: 366px;
-  border-radius: 4px;
+  min-width: 350px;
   padding: 5px;
   overflow-y: scroll;
 
@@ -23,9 +23,9 @@ const LeagueTable = styled.div`
   }
 
   ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    border: 1px solid #f1f3f4;
     background-color: #00d4b1;
+    border: 1px solid #f1f3f4;
+    border-radius: 4px;
   }
 `;
 
@@ -38,10 +38,10 @@ const ClubLogo = styled.div`
 `;
 
 const ClubTable = styled.div`
+  border-radius: 4px;
+  border-top: 1px solid #f1f3f4;
   display: grid;
   grid-template-columns: 100px 1fr;
-  border-top: 1px solid #f1f3f4;
-  border-radius: 4px;
   padding: 5px;
 `;
 
@@ -59,7 +59,7 @@ const ClubTableRowBody = styled.div`
 const ClubInfomation = ({ teamHighlightInfo }) => (
   <ClubInfoContainer>
     {teamHighlightInfo.map((team) => (
-      <LeagueTable key={team.team_id}>
+      <ClubInfoTable key={team.team_id}>
         <ClubLogo>
           <img src={team.logo} alt={team.teamName} width="115" />
         </ClubLogo>
@@ -87,7 +87,7 @@ const ClubInfomation = ({ teamHighlightInfo }) => (
           <ClubTableRowHead>Capacity</ClubTableRowHead>
           <ClubTableRowBody>{team.venue_capacity}</ClubTableRowBody>
         </ClubTable>
-      </LeagueTable>
+      </ClubInfoTable>
     ))}
   </ClubInfoContainer>
 );

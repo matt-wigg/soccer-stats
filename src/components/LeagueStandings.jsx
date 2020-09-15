@@ -7,14 +7,14 @@ const FootballTableContainer = styled.div`
 `;
 
 const LeagueTable = styled.div`
+  background-color: #fff;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   display: flex;
   flex-flow: column;
-  min-width: 100%;
   max-height: 300px;
-  background-color: #fff;
+  min-width: 100%;
   overflow-x: hidden;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
 
   ::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -22,39 +22,37 @@ const LeagueTable = styled.div`
   }
 
   ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    border: 1px solid #f1f3f4;
     background-color: #00d4b1;
+    border: 1px solid #f1f3f4;
+    border-radius: 4px;
   }
 `;
 
 const LeagueTableHeader = styled.div`
-  grid-area: header;
-  display: grid;
-  font-weight: 700;
-  grid-template-columns: 7fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 3fr;
-  grid-template-areas:
-    "club mp win loss draw gf ga gd pts last";
-  padding: 5px;
-  padding-top: 10px;
   background-color: #fff;
   border-bottom: 1px solid #b2b2b2;
-  border-top-right-radius: 4px;
   border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  display: grid;
+  font-weight: 700;
+  grid-template-areas:
+    "club mp win loss draw gf ga gd pts last";
+  grid-template-columns: 7fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 3fr;
+  padding: 5px;
+  padding-top: 10px;
   min-width: 100%;
 `;
 
 const LeagueTableRow = styled.div`
+  background-color: #fff;
   border-top: 1px solid #f1f3f4;
   cursor: pointer;
-  grid-area: header;
   display: grid;
   font-weight: 400;
-  grid-template-columns: 7fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 3fr;
   grid-template-areas:
     "club mp win loss draw gf ga gd pts last";
+  grid-template-columns: 7fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 3fr;
   padding: 5px;
-  background-color: #fff;
 
   &:hover {
     background-color: #00d4b1;
@@ -62,8 +60,8 @@ const LeagueTableRow = styled.div`
 `;
 
 const Club = styled.div`
-  grid-area: club;
   display: inline-block;
+  grid-area: club;
   height: 20px;
   padding-left: 10px;
 `;
@@ -118,27 +116,27 @@ const LastFive = styled(LastFiveHeader)`
 `;
 
 const ClubRank = styled.div`
-  max-height: 100%;
-  margin: auto;
   display: inline-block;
+  margin: auto;
+  max-height: 100%;
   width: 20px;
 `;
 
 const ClubLogo = styled.img`
-  max-height: 100%;
-  margin: auto;
   display: inline-block;
+  margin: auto;
+  max-height: 100%;
   padding-left: 10px;
 `;
 
 const ClubInfo = styled.div`
-  max-height: 100%;
-  margin: auto;
   display: inline-block;
+  margin: auto;
+  max-height: 100%;
   padding-left: 10px;
 `;
 
-const FootballTable = ({ standings, addClubToList }) => (
+const LeagueStandings = ({ standings, addClubToList }) => (
   <FootballTableContainer>
     <LeagueTableHeader>
       <Club>Club</Club>
@@ -175,9 +173,9 @@ const FootballTable = ({ standings, addClubToList }) => (
   </FootballTableContainer>
 );
 
-FootballTable.propTypes = {
+LeagueStandings.propTypes = {
   standings: PropTypes.arrayOf(PropTypes.array).isRequired,
   addClubToList: PropTypes.func.isRequired,
 };
 
-export default FootballTable;
+export default LeagueStandings;

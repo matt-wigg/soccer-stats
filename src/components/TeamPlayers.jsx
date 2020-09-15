@@ -2,20 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const FootballTableContainer = styled.div`
-  width: 100%;
+const TeamPlayersContainer = styled.div`
   max-height: 300px;
+  width: 100%;
 `;
 
-const LeagueTable = styled.div`
+const TeamPlayersTabelContainer = styled.div`
+  background-color: #fff;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   display: flex;
   flex-flow: column;
-  min-width: 100%;
   max-height: 325px;
-  background-color: #fff;
+  min-width: 100%;
   overflow-x: hidden;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
 
   ::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -23,39 +23,37 @@ const LeagueTable = styled.div`
   }
 
   ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    border: 1px solid #f1f3f4;
     background-color: #00d4b1;
+    border: 1px solid #f1f3f4;
+    border-radius: 4px;
   }
 `;
 
-const LeagueTableHeader = styled.div`
-  grid-area: header;
-  display: grid;
-  font-weight: 700;
-  grid-template-columns: 3fr 2fr 2fr 1fr 1fr 1fr;
-  grid-template-areas:
-    "name position nationality age height weight";
-  padding: 5px;
-  padding-top: 10px;
+const TeamPlayersTabelHeader = styled.div`
   background-color: #fff;
   border-bottom: 1px solid #b2b2b2;
-  border-top-right-radius: 4px;
   border-top-left-radius: 4px;
-  min-width: 100%;
-`;
-
-const LeagueTableRow = styled.div`
-  border-top: 1px solid #f1f3f4;
-  cursor: pointer;
-  grid-area: header;
+  border-top-right-radius: 4px;
   display: grid;
-  font-weight: 400;
-  grid-template-columns: 3fr 2fr 2fr 1fr 1fr 1fr;
+  font-weight: 700;
   grid-template-areas:
     "name position nationality age height weight";
+  grid-template-columns: 3fr 2fr 2fr 1fr 1fr 1fr;
+  min-width: 100%;
   padding: 5px;
+  padding-top: 10px;
+`;
+
+const TeamPlayersTabelRow = styled.div`
   background-color: #fff;
+  border-top: 1px solid #f1f3f4;
+  cursor: pointer;
+  display: grid;
+  font-weight: 400;
+  grid-template-areas:
+    "name position nationality age height weight";
+  grid-template-columns: 3fr 2fr 2fr 1fr 1fr 1fr;
+  padding: 5px;
 
   &:hover {
     background-color: #00d4b1;
@@ -63,8 +61,8 @@ const LeagueTableRow = styled.div`
 `;
 
 const PlayerName = styled.div`
-  grid-area: name;
   display: inline-block;
+  grid-area: name;
   height: 20px;
   padding-left: 10px;
 `;
@@ -95,31 +93,31 @@ const PlayerWeight = styled.div`
 `;
 
 const PlayerFirstName = styled.div`
-  max-height: 100%;
-  margin: auto;
   display: inline-block;
+  margin: auto;
+  max-height: 100%;
 `;
 
 const PlayerLastName = styled.div`
-  max-height: 100%;
-  margin: auto;
   display: inline-block;
+  margin: auto;
+  max-height: 100%;
   padding-left: 10px;
 `;
 
 const TeamPlayers = ({ players, highlightPlayerInfo }) => (
-  <FootballTableContainer>
-    <LeagueTableHeader>
+  <TeamPlayersContainer>
+    <TeamPlayersTabelHeader>
       <PlayerName>Name</PlayerName>
       <PlayerPosition>Position</PlayerPosition>
       <PlayerNationality>Nationality</PlayerNationality>
       <PlayerAge>Age</PlayerAge>
       <PlayerHeight>Height</PlayerHeight>
       <PlayerWeight>Weight</PlayerWeight>
-    </LeagueTableHeader>
-    <LeagueTable>
+    </TeamPlayersTabelHeader>
+    <TeamPlayersTabelContainer>
       {players.map((player) => (
-        <LeagueTableRow
+        <TeamPlayersTabelRow
           key={player.player_id}
           onClick={() => highlightPlayerInfo(player.player_id)}
         >
@@ -132,10 +130,10 @@ const TeamPlayers = ({ players, highlightPlayerInfo }) => (
           <PlayerAge>{player.age}</PlayerAge>
           <PlayerHeight>{player.height}</PlayerHeight>
           <PlayerWeight>{player.weight}</PlayerWeight>
-        </LeagueTableRow>
+        </TeamPlayersTabelRow>
       ))}
-    </LeagueTable>
-  </FootballTableContainer>
+    </TeamPlayersTabelContainer>
+  </TeamPlayersContainer>
 );
 
 TeamPlayers.propTypes = {
