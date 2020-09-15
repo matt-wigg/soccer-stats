@@ -54,7 +54,7 @@ const PlayerStatsTableRowBody = styled.div`
   flex-flow: column;
 `;
 
-const PlayerStats = ({ playerHighlightInfo }) => (
+const PlayerHighlightedStats = ({ playerHighlightInfo }) => (
   <PlayerStatsContainer>
     {playerHighlightInfo.map((player) => (
       <PlayerStatsTableContainer key={player.player_id + player.league_id}>
@@ -109,8 +109,8 @@ const PlayerStats = ({ playerHighlightInfo }) => (
   </PlayerStatsContainer>
 );
 
-PlayerStats.propTypes = {
+PlayerHighlightedStats.propTypes = {
   playerHighlightInfo: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default PlayerStats;
+export default PlayerHighlightedStats;

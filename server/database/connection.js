@@ -1,10 +1,11 @@
 /* eslint-disable no-console */
 const { MongoClient } = require('mongodb');
+const { username, password, ip } = require('./config');
 
-const client = new MongoClient('mongodb://localhost:27017',
-  { useUnifiedTopology: true });
+const client = new MongoClient(`mongodb://${username}:${password}@${ip}`,
+  { useUnifiedTopology: true, poolSize: 50 });
 
-client.connect().then(() => console.log('connected'));
+client.connect().then(() => console.log('connected')).catch((error) => console.log(error));
 
 const leagueStandings = client.db('football').collection('standings');
 const teamInfo = client.db('football').collection('team');
