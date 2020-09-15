@@ -17,6 +17,7 @@ const SelectLeague = ({ leagues, updateFootballStandings }) => (
   <SearchCountry>
     <Select
       label="Single select"
+      value={leagues.filter((league) => league.label === 'Premier League')}
       options={leagues}
       placeholder="Select League"
       onChange={updateFootballStandings}

@@ -50,7 +50,7 @@ const ClubInformationSection = styled.div`
   width: 80vw;
 `;
 
-class App extends Component {
+class SoccerStats extends Component {
   constructor() {
     super();
     this.state = {
@@ -75,6 +75,7 @@ class App extends Component {
     // leeds united placeholders
     getFootballStandings(2790, (standings) => {
       this.setState({ standings });
+      this.updateCountryLeagueList({ value: 'England' });
       this.highlightClubInfo(63);
       this.addClubToList(63);
       this.highlightPlayerInfo(19130);
@@ -188,4 +189,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default SoccerStats;

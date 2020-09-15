@@ -17,6 +17,7 @@ const SelectCountry = ({ countries, updateCountryLeagueList }) => (
   <SearchCountry>
     <Select
       label="Single select"
+      value={countries.filter((country) => country.label === 'England')}
       options={countries}
       placeholder="Select Country"
       onChange={updateCountryLeagueList}
