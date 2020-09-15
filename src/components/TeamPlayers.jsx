@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const FootballTableContainer = styled.div`
@@ -18,12 +19,13 @@ const LeagueTable = styled.div`
 
   ::-webkit-scrollbar {
     -webkit-appearance: none;
-    width: 7px;
+    width: 9px;
   }
 
   ::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    background-color: #b2b2b2;
+    border: 1px solid #f1f3f4;
+    background-color: #00d4b1;
   }
 `;
 
@@ -116,7 +118,6 @@ const TeamPlayers = ({ players, highlightPlayerInfo }) => (
       <PlayerWeight>Weight</PlayerWeight>
     </LeagueTableHeader>
     <LeagueTable>
-      {console.log(players)}
       {players.map((player) => (
         <LeagueTableRow
           key={player.player_id}
@@ -136,5 +137,10 @@ const TeamPlayers = ({ players, highlightPlayerInfo }) => (
     </LeagueTable>
   </FootballTableContainer>
 );
+
+TeamPlayers.propTypes = {
+  players: PropTypes.arrayOf(PropTypes.object).isRequired,
+  highlightPlayerInfo: PropTypes.func.isRequired,
+};
 
 export default TeamPlayers;

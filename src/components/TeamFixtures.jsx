@@ -1,11 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const FixturesTable = styled.div`
   display: flex;
   flex-flow: row;
   width: 100%;
-  max-height: 326px;
+  max-height: 325px;
+  min-height: 325px;
   flex-wrap: wrap;
   background-color: #fff;
   overflow-x: hidden;
@@ -14,12 +16,13 @@ const FixturesTable = styled.div`
 
   ::-webkit-scrollbar {
     -webkit-appearance: none;
-    width: 7px;
+    width: 9px;
   }
 
   ::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    background-color: #b2b2b2;
+    border: 1px solid #f1f3f4;
+    background-color: #00d4b1;
   }
 `;
 
@@ -38,7 +41,6 @@ const FixtureContainer = styled.div`
   border: 1px solid #f1f3f4;
   width: 50%;
   min-height: 150px;
-  cursor: pointer;
   padding: 5px;
   background-color: #fff;
   display: grid;
@@ -47,9 +49,6 @@ const FixtureContainer = styled.div`
 
   justify-content: space-around;
 
-  &:hover {
-    background-color: #f3f2f2;
-  }
 `;
 
 const TeamOne = styled.div`
@@ -102,7 +101,6 @@ const Club = styled.div`
 `;
 
 const parseDate = (date) => new Date(date).toDateString();
-
 const parseTime = (date) => new Date(date).toLocaleTimeString([],
   { hour: 'numeric', minute: '2-digit', hour12: true });
 
@@ -116,7 +114,7 @@ const TeamFixtures = ({ fixtures }) => (
       : null}
     <FixturesTable>
       {fixtures.map((fixture) => (
-        <FixtureContainer>
+        <FixtureContainer key={fixture.fixture_id}>
           <TeamOne>
             <img src={fixture.homeTeam.logo} alt={fixture.homeTeam.team_name} width="60" />
             {fixture.homeTeam.team_name}
@@ -135,5 +133,9 @@ const TeamFixtures = ({ fixtures }) => (
     </FixturesTable>
   </section>
 );
+
+TeamFixtures.propTypes = {
+  fixtures: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default TeamFixtures;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Select from 'react-select';
 import styled from 'styled-components';
 
@@ -8,7 +9,6 @@ const SearchCountry = styled.div`
   min-width: 350px;
   max-height: 300px;
   background-color: #fff;
-
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
 `;
@@ -20,7 +20,7 @@ const SelectCountry = ({ countries, updateCountryLeagueList }) => (
       options={countries}
       placeholder="Select Country"
       onChange={updateCountryLeagueList}
-      theme={theme => ({
+      theme={(theme) => ({
         ...theme,
         borderRadius: 0,
         colors: {
@@ -32,5 +32,10 @@ const SelectCountry = ({ countries, updateCountryLeagueList }) => (
     />
   </SearchCountry>
 );
+
+SelectCountry.propTypes = {
+  countries: PropTypes.arrayOf(PropTypes.object).isRequired,
+  updateCountryLeagueList: PropTypes.func.isRequired,
+};
 
 export default SelectCountry;

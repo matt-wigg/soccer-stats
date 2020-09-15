@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const PlayerStatsContainer = styled.div`
@@ -15,30 +16,17 @@ const PlayerStatsContainer = styled.div`
 
   ::-webkit-scrollbar {
     -webkit-appearance: none;
-    width: 7px;
+    width: 9px;
   }
 
   ::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    background-color: #b2b2b2;
+    border: 1px solid #f1f3f4;
+    background-color: #00d4b1;
   }
 `;
 
-const LeagueTableHeader = styled.div`
-  grid-area: header;
-  display: grid;
-  font-weight: 700;
-  padding: 5px;
-  padding-top: 10px;
-  padding-left: 10px;
-  background-color: #fff;
-  border-bottom: 1px solid #b2b2b2;
-  border-top-right-radius: 4px;
-  border-top-left-radius: 4px;
-  min-width: 100%;
-`;
-
-const LeagueTable = styled.div`
+const PlayerStatsTableContainer = styled.div`
   display: flex;
   flex-flow: column;
   background-color: #fff;
@@ -47,29 +35,21 @@ const LeagueTable = styled.div`
   padding: 5px;
 `;
 
-const ClubLogo = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  max-height: auto;
-  padding: 5px;
-  padding-bottom: 10px;
-`;
-
-const ClubTable = styled.div`
+const PlayerStatsTable = styled.div`
   display: grid;
-  grid-template-columns: 100px 1fr;
-  border-top: 1px solid #f1f3f4;
+  grid-template-columns: 150px 1fr;
+  border-bottom: 1px solid #f1f3f4;
   border-radius: 4px;
   padding: 5px;
 `;
 
-const ClubTableRowHead = styled.div`
+const PlayerStatsTableRowHead = styled.div`
   display: flex;
   flex-flow: column;
   font-weight: 700;
 `;
 
-const ClubTableRowBody = styled.div`
+const PlayerStatsTableRowBody = styled.div`
   display: flex;
   flex-flow: column;
 `;
@@ -77,31 +57,60 @@ const ClubTableRowBody = styled.div`
 const PlayerStats = ({ playerHighlightInfo }) => (
   <PlayerStatsContainer>
     {playerHighlightInfo.map((player) => (
-      <LeagueTable>
-        {console.log(player)}
-        <ClubTable>
-          <ClubTableRowHead>Player</ClubTableRowHead>
-          <ClubTableRowBody>{player.player_name}</ClubTableRowBody>
-        </ClubTable>
-        <ClubTable>
-          <ClubTableRowHead>Team</ClubTableRowHead>
-          <ClubTableRowBody>{player.team_name}</ClubTableRowBody>
-        </ClubTable>
-        <ClubTable>
-          <ClubTableRowHead>Country</ClubTableRowHead>
-          <ClubTableRowBody>{player.birth_country}</ClubTableRowBody>
-        </ClubTable>
-        <ClubTable>
-          <ClubTableRowHead>Goals</ClubTableRowHead>
-          <ClubTableRowBody>{player.goals.total}</ClubTableRowBody>
-        </ClubTable>
-        <ClubTable>
-          <ClubTableRowHead>Games</ClubTableRowHead>
-          <ClubTableRowBody>{player.games.appearences}</ClubTableRowBody>
-        </ClubTable>
-      </LeagueTable>
+      <PlayerStatsTableContainer key={player.player_id + player.league_id}>
+        <PlayerStatsTable>
+          <PlayerStatsTableRowHead>Name</PlayerStatsTableRowHead>
+          <PlayerStatsTableRowBody>{player.player_name}</PlayerStatsTableRowBody>
+        </PlayerStatsTable>
+        <PlayerStatsTable>
+          <PlayerStatsTableRowHead>Club</PlayerStatsTableRowHead>
+          <PlayerStatsTableRowBody>{player.team_name}</PlayerStatsTableRowBody>
+        </PlayerStatsTable>
+        <PlayerStatsTable>
+          <PlayerStatsTableRowHead>Rating</PlayerStatsTableRowHead>
+          <PlayerStatsTableRowBody>
+            {player.rating ? Number(player.rating).toFixed(2) : 'N/A'}
+          </PlayerStatsTableRowBody>
+        </PlayerStatsTable>
+        <PlayerStatsTable>
+          <PlayerStatsTableRowHead>Position</PlayerStatsTableRowHead>
+          <PlayerStatsTableRowBody>{player.position}</PlayerStatsTableRowBody>
+        </PlayerStatsTable>
+        <PlayerStatsTable>
+          <PlayerStatsTableRowHead>Apperances</PlayerStatsTableRowHead>
+          <PlayerStatsTableRowBody>{player.games.appearences}</PlayerStatsTableRowBody>
+        </PlayerStatsTable>
+        <PlayerStatsTable>
+          <PlayerStatsTableRowHead>Minutes Played</PlayerStatsTableRowHead>
+          <PlayerStatsTableRowBody>{player.games.minutes_played}</PlayerStatsTableRowBody>
+        </PlayerStatsTable>
+        <PlayerStatsTable>
+          <PlayerStatsTableRowHead>Goals</PlayerStatsTableRowHead>
+          <PlayerStatsTableRowBody>{player.goals.total}</PlayerStatsTableRowBody>
+        </PlayerStatsTable>
+        <PlayerStatsTable>
+          <PlayerStatsTableRowHead>Passes</PlayerStatsTableRowHead>
+          <PlayerStatsTableRowBody>{player.passes.total}</PlayerStatsTableRowBody>
+        </PlayerStatsTable>
+        <PlayerStatsTable>
+          <PlayerStatsTableRowHead>Pass Accuracy</PlayerStatsTableRowHead>
+          <PlayerStatsTableRowBody>{player.passes.accuracy}</PlayerStatsTableRowBody>
+        </PlayerStatsTable>
+        <PlayerStatsTable>
+          <PlayerStatsTableRowHead>Yellow Cards</PlayerStatsTableRowHead>
+          <PlayerStatsTableRowBody>{player.cards.yellow}</PlayerStatsTableRowBody>
+        </PlayerStatsTable>
+        <PlayerStatsTable>
+          <PlayerStatsTableRowHead>Red Cards</PlayerStatsTableRowHead>
+          <PlayerStatsTableRowBody>{player.cards.red}</PlayerStatsTableRowBody>
+        </PlayerStatsTable>
+      </PlayerStatsTableContainer>
     ))}
   </PlayerStatsContainer>
 );
+
+PlayerStats.propTypes = {
+  playerHighlightInfo: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default PlayerStats;

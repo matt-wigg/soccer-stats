@@ -24,7 +24,8 @@ import {
 import { assignCountryOptions, assignLeagueOptions } from '../lib/CountriesAndLeagues';
 
 const MainBody = styled.div`
-  padding-top: 25px;
+  padding-top: 5px;
+  margin-bottom: 100px;
   display: flex;
   flex-flow: column;
   min-width: 250px;
@@ -33,7 +34,7 @@ const MainBody = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 1600px;
-  width: 70vw;
+  width: 80vw;
 `;
 
 const LeagueTableAndMyClubs = styled.div`
@@ -45,19 +46,20 @@ const LeagueTableAndMyClubs = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 1600px;
-  width: 70vw;
+  width: 80vw;
 `;
 
 const ClubStats = styled.div`
   display: flex;
   flex-flow: row;
   min-width: 250px;
+  max-height: 365px;
   grid-gap: 10px 10px;
   aligh-items: center;
   margin-left: auto;
   margin-right: auto;
   max-width: 1600px;
-  width: 70vw;
+  width: 80vw;
 `;
 
 class App extends Component {
@@ -82,7 +84,12 @@ class App extends Component {
   }
 
   componentDidMount() {
-    getFootballStandings(2790, (standings) => this.setState({ standings }));
+    getFootballStandings(2790, (standings) => {
+      this.setState({ standings });
+      this.highlightClubInfo(63);
+      this.addClubToList(63);
+      this.highlightPlayerInfo(19130);
+    });
     getFootballCountries((availableCountries) => {
       const countries = assignCountryOptions(availableCountries);
       this.setState({ countries });
@@ -98,6 +105,7 @@ class App extends Component {
         myClubs: [findTeam[0], ...prevState.myClubs],
       }));
     }
+    this.highlightClubInfo(id);
   }
 
   removeClubFromList(id) {
@@ -158,14 +166,16 @@ class App extends Component {
           />
           <SelectLeague leagues={leagues} updateFootballStandings={this.updateFootballStandings} />
         </LeagueTableAndMyClubs>
-        <LeagueTableAndMyClubs>
-          <FootballTable standings={standings} addClubToList={this.addClubToList} />
-          <MyClubs
-            myClubs={myClubs}
-            removeClubFromList={this.removeClubFromList}
-            highlightClubInfo={this.highlightClubInfo}
-          />
-        </LeagueTableAndMyClubs>
+        {standings.length ? (
+          <LeagueTableAndMyClubs>
+            <FootballTable standings={standings} addClubToList={this.addClubToList} />
+            <MyClubs
+              myClubs={myClubs}
+              removeClubFromList={this.removeClubFromList}
+              highlightClubInfo={this.highlightClubInfo}
+            />
+          </LeagueTableAndMyClubs>
+        ) : null}
         {teamHighlightFixtures.length ? (
           <ClubStats>
             <ClubInfomation teamHighlightInfo={teamHighlightInfo} />
@@ -175,10 +185,14 @@ class App extends Component {
             />
           </ClubStats>
         ) : null}
-        <ClubStats>
-          <TeamPlayers players={teamPlayers} highlightPlayerInfo={this.highlightPlayerInfo} />
-          <PlayerStats playerHighlightInfo={playerHighlightInfo} />
-        </ClubStats>
+        {teamPlayers.length ? (
+          <ClubStats>
+            <TeamPlayers players={teamPlayers} highlightPlayerInfo={this.highlightPlayerInfo} />
+            {playerHighlightInfo.length ? (
+              <PlayerStats playerHighlightInfo={playerHighlightInfo} />
+            ) : null}
+          </ClubStats>
+        ) : null}
       </MainBody>
     );
   }

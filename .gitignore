@@ -36,3 +36,6 @@ bower_components/
 
 # secrets
 config.js
+
+# bundle
+bundle.js

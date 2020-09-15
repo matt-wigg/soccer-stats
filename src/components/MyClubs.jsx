@@ -1,5 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
+const MyClubContainer = styled.div`
+  max-height: 365px;
+`;
 
 const LeagueTable = styled.div`
   display: flex;
@@ -10,16 +15,17 @@ const LeagueTable = styled.div`
   border-bottom-left-radius: 4px;
   max-height: 300px;
   min-width: 350px;
-  height: 300px;
+  height: 295px;
 
   ::-webkit-scrollbar {
     -webkit-appearance: none;
-    width: 7px;
+    width: 9px;
   }
 
   ::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    background-color: #b2b2b2;
+    border: 1px solid #f1f3f4;
+    background-color: #00d4b1;
   }
 `;
 
@@ -35,7 +41,7 @@ const LeagueTableRow = styled.div`
   padding-bottom: 5px;
 
   &:hover {
-    background-color: #f3f2f2;
+    background-color: #00d4b1;
   }
 `;
 
@@ -57,7 +63,7 @@ const LeagueTableHeader = styled.div`
 const Club = styled.div`
   grid-area: club;
   display: inline-block;
-  height: 20px;
+  height: 25px;
   padding-left: 10px;
 `;
 
@@ -74,6 +80,7 @@ const ClubInfo = styled.div`
   margin: auto;
   display: inline-block;
   padding-left: 10px;
+  vertical-align: top;
 `;
 
 const RemoveClub = styled.div`
@@ -96,12 +103,12 @@ const RemoveClub = styled.div`
 `;
 
 const MyClubs = ({ myClubs, removeClubFromList, highlightClubInfo }) => (
-  <section>
+  <MyClubContainer>
     <LeagueTableHeader>
       <Club>My Clubs</Club>
     </LeagueTableHeader>
     <LeagueTable>
-      {myClubs.map((team, index) => (
+      {myClubs.map((team) => (
         <LeagueTableRow key={team.team_id}>
           <Club onClick={() => highlightClubInfo(team.team_id)}>
             <ClubLogo src={team.logo} alt={team.teamName} />
@@ -111,7 +118,13 @@ const MyClubs = ({ myClubs, removeClubFromList, highlightClubInfo }) => (
         </LeagueTableRow>
       ))}
     </LeagueTable>
-  </section>
+  </MyClubContainer>
 );
+
+MyClubs.propTypes = {
+  myClubs: PropTypes.arrayOf(PropTypes.object).isRequired,
+  removeClubFromList: PropTypes.func.isRequired,
+  highlightClubInfo: PropTypes.func.isRequired,
+};
 
 export default MyClubs;

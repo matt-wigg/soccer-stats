@@ -1,14 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
+const ClubInfoContainer = styled.div`
+  max-height: 365px;
+`;
 
 const LeagueTable = styled.div`
   display: flex;
   flex-flow: column;
   background-color: #fff;
   min-width: 350px;
+  max-height: 366px;
+  min-height: 366px;
   border-radius: 4px;
   padding: 5px;
   overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 9px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    border: 1px solid #f1f3f4;
+    background-color: #00d4b1;
+  }
 `;
 
 const ClubLogo = styled.div`
@@ -39,11 +57,11 @@ const ClubTableRowBody = styled.div`
 `;
 
 const ClubInfomation = ({ teamHighlightInfo }) => (
-  <section>
+  <ClubInfoContainer>
     {teamHighlightInfo.map((team) => (
-      <LeagueTable>
+      <LeagueTable key={team.team_id}>
         <ClubLogo>
-          <img src={team.logo} alt={team.teamName} width="125" />
+          <img src={team.logo} alt={team.teamName} width="115" />
         </ClubLogo>
         <ClubTable>
           <ClubTableRowHead>Club</ClubTableRowHead>
@@ -71,7 +89,11 @@ const ClubInfomation = ({ teamHighlightInfo }) => (
         </ClubTable>
       </LeagueTable>
     ))}
-  </section>
+  </ClubInfoContainer>
 );
+
+ClubInfomation.propTypes = {
+  teamHighlightInfo: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default ClubInfomation;

@@ -18,7 +18,6 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
       display: block;
-      background-color: #3f1052;
       margin: 0;
       padding: 0;
       scroll-behavior: smooth;

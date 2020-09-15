@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const FootballTableContainer = styled.div`
@@ -17,12 +18,13 @@ const LeagueTable = styled.div`
 
   ::-webkit-scrollbar {
     -webkit-appearance: none;
-    width: 7px;
+    width: 9px;
   }
 
   ::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    background-color: #b2b2b2;
+    border: 1px solid #f1f3f4;
+    background-color: #00d4b1;
   }
 `;
 
@@ -172,5 +174,10 @@ const FootballTable = ({ standings, addClubToList }) => (
     </LeagueTable>
   </FootballTableContainer>
 );
+
+FootballTable.propTypes = {
+  standings: PropTypes.arrayOf(PropTypes.array).isRequired,
+  addClubToList: PropTypes.func.isRequired,
+};
 
 export default FootballTable;
