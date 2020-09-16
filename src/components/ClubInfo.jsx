@@ -33,8 +33,7 @@ const ClubLogo = styled.div`
   display: flex;
   justify-content: space-evenly;
   max-height: auto;
-  padding: 5px;
-  padding-bottom: 10px;
+  padding: 10px;
 `;
 
 const ClubTable = styled.div`
