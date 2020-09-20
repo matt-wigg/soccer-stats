@@ -1,14 +1,12 @@
 [<img src="https://img.shields.io/badge/gmail-%23D14836.svg?&style=for-the-badge&logo=gmail&logoColor=white">](mailto:m.p.wigglesworth@gmail.com)
 [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white">](https://www.linkedin.com/in/matt-wigg/)
-
-<p align="center" height="200"><img src="https://i.imgur.com/GMB74Ka.png"></p>
-
 # Soccer Stats #
 
 1. [Overview](#overview)
 2. [Features](#features)
 
 ## Overview
+<p align="center" height="200"><img src="https://i.imgur.com/GMB74Ka.png"></p>
 <p>Soccer Stats allows you to search, follow, and track any club around the world for the 2020 / 2021 season. No longer do you need to jump around from club website to club website to find your favorite team's latest fixtures, results, team rosters, and more! By using real-time statistics pulled directly via API-Football, you can search for any club across the globe, add them to your favorites list, and browse their latest statistics!</p>
 
 ## Features
