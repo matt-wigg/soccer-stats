@@ -1,4 +1,4 @@
-#Soccer Stats
+# Soccer Stats
 
 1. [Overview](#overview)
 2. [Features](#features)
