@@ -12,12 +12,14 @@ Soccer Stats allows you to search, follow, and track any club around the world f
 ## Features
 
 <br>**Add & remove teams to your 'My Clubs' list**<br>
-Quickly access your followed club's information by adding them to your 'My Clubs' list. To add a team to your list, search for the club via the [country & league search feature](**search-countries-&-leagues), then click on the club displayed in the current league table. The club will then automatically appear in the list for easy access. Add as many clubs as you like - there is no limit. If you no longer wish to track a club, you can remove it from your list by clicking on the corresponding remove button.
-<br />
+<br>
 ![soccer-stats](https://media.giphy.com/media/7Eh9Ybna9Gw9NwQKDl/giphy.gif)
-<br />
+<br>
+<p>
+Quickly access your followed club's information by adding them to your 'My Clubs' list. To add a team to your list, search for the club via the [country & league search feature](#search-countries-leagues), then click on the club displayed in the current league table. The club will then automatically appear in the list for easy access. Add as many clubs as you like - there is no limit. If you no longer wish to track a club, you can remove it from your list by clicking on the corresponding remove button.
+</p>
 
-<br>**Search Countries & Leagues**<br>
+<br><a name="search-countries-leagues">**Search Countries & Leagues**</a><br>
 <br />
 ![soccer-stats](https://media.giphy.com/media/q6vKDPvdgwUktIXuqz/giphy.gif)
 <br />
