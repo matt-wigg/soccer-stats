@@ -3,7 +3,7 @@
 1. [Overview](#overview)
 2. [Features](#features)
 
-![soccer-stats](https://i.imgur.com/GMB74Ka.png)
+<br align="center">![soccer-stats](https://i.imgur.com/GMB74Ka.png)</br>
 
 ## Overview
 
@@ -11,19 +11,18 @@ Soccer Stats allows you to search, follow, and track any club around the world f
 
 ## Features
 
-**Add & remove teams to your 'My Clubs' list**
+**Add & Remove Teams**
 
-![soccer-stats](https://media.giphy.com/media/7Eh9Ybna9Gw9NwQKDl/giphy.gif)
-
+<br align="center">![soccer-stats](https://media.giphy.com/media/7Eh9Ybna9Gw9NwQKDl/giphy.gif)</br>
 
 Quickly access your followed club's information by adding them to your 'My Clubs' list. To add a team to your list, search for the club via the [country & league search feature](#search-countries-leagues), then click on the club displayed in the current league table. The club will then automatically appear in the list for easy access. Add as many clubs as you like - there is no limit. If you no longer wish to track a club, you can remove it from your list by clicking on the corresponding remove button.
 
-<br><a name="search-countries-leagues">**Search Countries & Leagues**</a><br>
-<br />
-![soccer-stats](https://media.giphy.com/media/q6vKDPvdgwUktIXuqz/giphy.gif)
-<br />
+<a name="search-countries-leagues">**Search Countries & Leagues**</a>
 
-Search Club Fixtures & Player Statistics
-<br />
-![soccer-stats](https://media.giphy.com/media/lLESmb4K6uoGazEjYA/giphy.gif)
-<br />
+<br align="center">![soccer-stats](https://media.giphy.com/media/q6vKDPvdgwUktIXuqz/giphy.gif)</br>
+
+
+**Club Fixtures & Player Statistics**
+
+<br align="center">![soccer-stats](https://media.giphy.com/media/lLESmb4K6uoGazEjYA/giphy.gif)</br>
+
