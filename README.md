@@ -1,4 +1,10 @@
-# soccer-stats #
+# Soccer Stats #
+
+1. [Overview](#overview)
+
+![soccer-stats](https://i.imgur.com/GMB74Ka.png)
+
+## Overview
 
 Add & Remove Teams
 <br />
