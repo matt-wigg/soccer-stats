@@ -3,9 +3,8 @@
 1. [Overview](#overview)
 2. [Features](#features)
 
-<p align="center"><img src="https://i.imgur.com/GMB74Ka.png"></p>
-
 ## Overview
+<p align="center"><img src="https://i.imgur.com/GMB74Ka.png"></p>
 
 <p>Soccer Stats allows you to search, follow, and track any club around the world for the 2020 / 2021 season. No longer do you need to jump around from club website to club website to find your favorite team's latest fixtures, results, team rosters, and more! By using real-time statistics pulled directly via API-Football, you can search for any club across the globe, add them to your favorites list, and browse their latest statistics!</p>
 
