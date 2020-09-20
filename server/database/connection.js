@@ -2,7 +2,7 @@
 const { MongoClient } = require('mongodb');
 const { username, password, ip } = require('./config');
 
-const client = new MongoClient(`mongodb://${username}:${password}@${ip}`,
+const client = new MongoClient(`mongodb://localhost:27017/`,
   { useUnifiedTopology: true, poolSize: 50 });
 
 client.connect().then(() => console.log('connected')).catch((error) => console.log(error));
