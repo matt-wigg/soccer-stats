@@ -2,6 +2,7 @@
 
 1. [Overview](#overview)
 2. [Features](#features)
+3. [Built With](#built-with)
 
 ## Overview
 <p align="center" height="200"><img src="https://i.imgur.com/GMB74Ka.png"></p>
@@ -30,3 +31,5 @@ You can search for any tracked club across the globe by using the <b>countries</
 After selecting a team from the league table or My Clubs list, all the information for that club will appear below. You can explore the club's direct information: name, country, stadium..., as well as all upcoming fixtures and current player rosters. Scroll through the fixtures and players lists to see more information. To see the specific stats for an individual player in the squad, simply click on that player's name. The most recent statistics will appear in the <b>player highlight</b> component to the right of the player's list. Here you can see all the players statistics for both club and country (if they are an international player); they include name, club, season rating, position, appearances, goals, passes, etc.
 
 ---
+
+## Built With
