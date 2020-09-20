@@ -1,7 +1,6 @@
-[<img src="https://img.shields.io/badge/gmail-%23D14836.svg?&style=for-the-badge&logo=gmail&logoColor=white">](mailto:m.p.wigglesworth@gmail.com)
-[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white">](https://www.linkedin.com/in/matt-wigg/)
-# Soccer Stats #
+ <h1 align="center">Soccer Stats</h1>
 
+## Table of Contents
 1. [Overview](#overview)
 2. [Features](#features)
 
