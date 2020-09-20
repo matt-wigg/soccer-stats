@@ -1,6 +1,5 @@
  <h1 align="center">Soccer Stats</h1>
 
-## Table of Contents
 1. [Overview](#overview)
 2. [Features](#features)
 
