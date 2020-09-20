@@ -1,3 +1,3 @@
-# soccer-stats
+# soccer-stats #
 
-![Soccer-Stats](https://j.gifs.com/91WKnx.gif)
+![soccer-stats](https://media.giphy.com/media/7Eh9Ybna9Gw9NwQKDl/giphy.gif)
