@@ -1,4 +1,4 @@
- <h1 align="center">Soccer Stats</h1>
+#Soccer Stats
 
 1. [Overview](#overview)
 2. [Features](#features)
@@ -66,7 +66,7 @@ git clone https://github.com/Matt-Wigg/soccer-stats.git
 ```sh
 npm install
 ```
-4. Rename the file `RENAME_ME_CONFIG.JS` inside <b>server/database</b> to `config.js` and add your MongoDB username, password. The ip is only required if your MongoDB is on an instance (AWS/EC2 for example).
+4. Rename the file `RENAME_ME_CONFIG.JS` inside server/database to `config.js` and add your MongoDB username, password. <br>`ip` is only required if your MongoDB is on an instance (AWS/EC2 for example).
 ```JS
 module.exports = {
   username: 'USERNAME',
@@ -74,7 +74,7 @@ module.exports = {
   ip: 'IP_ADDRESS',
 };
 ```
-5. Rename the file `RENAME_ME_CONFIG.JS` inside <b>server/controllers</b> to `config.js` and add your API-FOOTBALL Host key and API key.
+5. Rename the file `RENAME_ME_CONFIG.JS` inside server/controllers to `config.js` and add your API-FOOTBALL Host key and API key.
 ```JS
 module.exports = {
   host: 'HOSTKEY',
