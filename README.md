@@ -4,6 +4,11 @@
 2. [Features](#features)
 3. [Built With](#built-with)
 4. [Getting Started](#getting-started)
+5. [License](#license)
+6. [Contributing](#contributing)
+7. [Contact](#contact)
+8. [Acknowledgements](#acknowledgements)
+
 
 ## Overview
 <p align="center" height="200"><img src="https://i.imgur.com/GMB74Ka.png"></p>
@@ -37,13 +42,73 @@ After selecting a team from the league table or My Clubs list, all the informati
 
 Soccer Stats is built with the following technologies:
 * [React](https://reactjs.org/)
-* [React-Select](https://react-select.com/home)
-* [Styled-Components](https://styled-components.com/)
 * [Node.js](https://nodejs.org/en/)
 * [Express](https://expressjs.com/)
 * [MongoDB](https://www.mongodb.com/)
-* [Axios](https://github.com/axios/axios)
 * [API-Football](https://www.api-football.com/)
 
 ## Getting Started
 
+### Prerequisites
+
+Node.js and npm are required in order to quickly get up and running with this project. Lukily, npm is distributed with Node.js - which means that when you download Node.js, you automatically get npm installed on your computer! You can install Node.js [HERE](https://nodejs.org/en/).
+
+Soccer Stats uses MongoDB for its datastorage of recent API calls. You can download the latest version of MonogoDB [HERE](https://www.mongodb.com/try/download/community)
+
+### Installation
+
+1. Get a free API-Football key [HERE](https://rapidapi.com/api-sports/api/api-football/pricing)
+2. Clone the repo
+```sh
+git clone https://github.com/Matt-Wigg/soccer-stats.git
+```
+3. Install npm packages
+```sh
+npm install
+```
+4. Rename the file `RENAME_ME_CONFIG.JS` inside <b>server/database</b> to `config.js` and add your MongoDB username, password. The ip is only required if your MongoDB is on an instance (AWS/EC2 for example).
+```JS
+module.exports = {
+  username: 'USERNAME',
+  password: 'PASSWORD',
+  ip: 'IP_ADDRESS',
+};
+```
+5. Rename the file `RENAME_ME_CONFIG.JS` inside <b>server/controllers</b> to `config.js` and add your API-FOOTBALL Host key and API key.
+```JS
+module.exports = {
+  host: 'HOSTKEY',
+  apiKey: 'APIKEY',
+};
+```
+6. Run the following commands:
+```sh
+npm run bundle
+npm run start
+```
+## License
+
+Distributed under the MIT License.
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## Contact
+
+Matthew Wigglesworth - [LinkedIn](https://www.linkedin.com/in/matt-wigg/) - m.p.wigglesworth@gmail.com
+
+Project Link: [https://github.com/Matt-Wigg/soccer-stats/](https://github.com/Matt-Wigg/soccer-stats/)
+
+## Acknowledgements
+
+* [React-Select](https://react-select.com/home)
+* [Styled-Components](https://styled-components.com/)
+* [Axios](https://github.com/axios/axios)
+* [Google Fonts](https://fonts.google.com/)
