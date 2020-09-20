@@ -3,6 +3,7 @@
 1. [Overview](#overview)
 2. [Features](#features)
 3. [Built With](#built-with)
+4. [Getting Started](#getting-started)
 
 ## Overview
 <p align="center" height="200"><img src="https://i.imgur.com/GMB74Ka.png"></p>
@@ -33,3 +34,16 @@ After selecting a team from the league table or My Clubs list, all the informati
 ---
 
 ## Built With
+
+Soccer Stats is built with the following technologies:
+* [Node.js](https://nodejs.org/en/)
+* [Express](https://expressjs.com/)
+* [MongoDB](https://www.mongodb.com/)
+* [Axios](https://github.com/axios/axios)
+* [React](https://reactjs.org/)
+* [React-Select](https://react-select.com/home)
+* [Styled-Components](https://styled-components.com/)
+* [API-Football](https://www.api-football.com/)
+
+## Getting Started
+
