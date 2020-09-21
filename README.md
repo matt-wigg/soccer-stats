@@ -35,7 +35,7 @@ Quickly access your followed club's information by adding them to your <b>My Clu
 <p><img src="https://media.giphy.com/media/q6vKDPvdgwUktIXuqz/giphy.gif"></p>
 
 You can search for any tracked club across the globe by using the <b>Countries & Leagues</b> dropdown menus located above the league table component. First, select a country you would like to explore from the countries dropdown. Once a country is selected, all available leagues for that country will display in the league dropdown menu. After making your selections, the latest table results will appear below; from there, you can start adding clubs to your list and browse their latest statistics. 
-<p><b>Pro-tip:</b> You can also type directly into the search dropdowns to filter your criteria faster!</p>
+<p><b>Pro-tip:</b> You can also type directly into the search boxes to filter the dropdown options!</p>
 
 ---
 
