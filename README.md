@@ -1,11 +1,17 @@
 # Soccer Stats
+A soccer tracking application for following your favourite clubs around the world.
 
 ## Table of Contents
 
 1. [Overview](#overview)
 2. [Features](#features)
+    * [Add & Remove Teams](#add--remove-teams)
+    * [Search Countries & Leagues](#search-countries--leagues)
+    * [Club Fixtures & Player Statistics](#club-fixtures--player-statistics)
 3. [Built With](#built-with)
 4. [Getting Started](#getting-started)
+    * [Prerequisites](#prerequisites)
+    * [Installation](#installation)
 5. [License](#license)
 6. [Contributing](#contributing)
 7. [Contact](#contact)
@@ -68,7 +74,7 @@ git clone https://github.com/Matt-Wigg/soccer-stats.git
 ```sh
 npm install
 ```
-4. Rename the file `RENAME_ME_CONFIG.JS` inside server/database to `config.js` and add your MongoDB username, password. <br>`ip` is only required if your MongoDB is on an instance (AWS/EC2 for example).
+4. Rename the file `RENAME_ME_CONFIG.JS` inside server/database to `config.js` and add your MongoDB username and password. The `ip` address is only required if your database is running on its own instance - AWS/EC2, for example.
 ```JS
 module.exports = {
   username: 'USERNAME',
