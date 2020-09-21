@@ -1,4 +1,5 @@
 # Soccer Stats
+A soccer tracking application for following your favourite clubs around the world.
 
 ## Table of Contents
 
