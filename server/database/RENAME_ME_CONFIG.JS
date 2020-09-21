@@ -2,5 +2,5 @@
 module.exports = {
   username: 'USERNAME',
   password: 'PASSWORD',
-  ip: 'IP_ADDRESS',
+  ip: 'localhost',
 };
