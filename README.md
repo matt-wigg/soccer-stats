@@ -79,7 +79,7 @@ npm install
 module.exports = {
   username: 'USERNAME',
   password: 'PASSWORD',
-  ip: 'IP_ADDRESS',
+  ip: 'localhost',
 };
 ```
 5. Rename the file `RENAME_ME_CONFIG.JS` inside server/controllers to `config.js` and add your API-FOOTBALL Host key and API key.
