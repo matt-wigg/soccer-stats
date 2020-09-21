@@ -3,7 +3,7 @@ const { MongoClient } = require('mongodb');
 const { username, password, ip } = require('./config');
 
 const client = new MongoClient(`mongodb://${username}:${password}@${ip}:27017`,
-  { useUnifiedTopology: true, poolSize: 50 });
+  { useUnifiedTopology: true, poolSize: 10 });
 
 client.connect().then(() => console.log('Database connected')).catch((error) => console.log(error));
 
