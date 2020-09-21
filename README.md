@@ -5,8 +5,13 @@ A soccer tracking application for following your favourite clubs around the worl
 
 1. [Overview](#overview)
 2. [Features](#features)
+    * [Add & Remove Teams](#add--remove-teams)
+    * [Search Countries & Leagues](#search-countries--leagues)
+    * [Club Fixtures & Player Statistics](#club-fixtures--player-statistics)
 3. [Built With](#built-with)
 4. [Getting Started](#getting-started)
+    * [Prerequisites](#prerequisites)
+    * [Installation](#installation)
 5. [License](#license)
 6. [Contributing](#contributing)
 7. [Contact](#contact)
