@@ -213,7 +213,7 @@ const getCountries = (req, res) => {
     .then((results) => res.status(200).send(results.countries))
     .catch((error) => {
       console.log(error);
-      res.status(500).send('Unable to retrieve standings from database.');
+      getAndUpdateCountries(req, res);
     });
 };
 
