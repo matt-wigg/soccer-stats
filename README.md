@@ -74,7 +74,7 @@ git clone https://github.com/Matt-Wigg/soccer-stats.git
 ```sh
 npm install
 ```
-4. Rename the file `RENAME_ME_CONFIG.JS` inside server/database to `config.js` and add your MongoDB username, password. <br>`ip` is only required if your MongoDB is on an instance (AWS/EC2 for example).
+4. Rename the file `RENAME_ME_CONFIG.JS` inside server/database to `config.js` and add your MongoDB username and password. The `ip` address is only required if your database is running on its own instance - AWS/EC2, for example.
 ```JS
 module.exports = {
   username: 'USERNAME',
