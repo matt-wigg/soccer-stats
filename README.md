@@ -1,5 +1,7 @@
 # Soccer Stats
 
+## Table of Contents
+
 1. [Overview](#overview)
 2. [Features](#features)
 3. [Built With](#built-with)
