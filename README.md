@@ -19,7 +19,7 @@
 ### Add & Remove Teams
 <p><img src="https://media.giphy.com/media/7Eh9Ybna9Gw9NwQKDl/giphy.gif"></p>
 
-Quickly access your followed club's information by adding them to your <b>My Clubs</b> list. To add a soccer club to your list, simply search for the club via the [Search Countries & Leagues] feature(#search-countries--leagues), then click on the club displayed in the current league table. The club will automatically appear in your collection list, allowing for easier access to their information. Add as many clubs as you like - there is no limit! If you no longer wish to track a club, you can remove it from your list by clicking on the corresponding <b>remove</b> button.
+Quickly access your followed club's information by adding them to your <b>My Clubs</b> list. To add a soccer club to your list, simply search for the club via the [Search Countries & Leagues](#search-countries--leagues) feature, then click on the club displayed in the current league table. The club will automatically appear in your collection list, allowing for easier access to their information. Add as many clubs as you like - there is no limit! If you no longer wish to track a club, you can remove it from your list by clicking on the corresponding <b>remove</b> button.
 
 ---
 
