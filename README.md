@@ -85,7 +85,7 @@ module.exports = {
 5. Rename the file `RENAME_ME_CONFIG.JS` inside server/controllers to `config.js` and add your API-FOOTBALL Host key and API key.
 ```JS
 module.exports = {
-  host: 'HOSTKEY',
+  hostKey: 'HOSTKEY',
   apiKey: 'APIKEY',
 };
 ```
