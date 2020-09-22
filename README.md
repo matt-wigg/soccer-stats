@@ -12,10 +12,10 @@ A soccer tracking application for following your favourite clubs around the worl
 4. [Getting Started](#getting-started)
     * [Prerequisites](#prerequisites)
     * [Installation](#installation)
-5. [License](#license)
-6. [Contributing](#contributing)
-7. [Contact](#contact)
-8. [Acknowledgements](#acknowledgements)
+5. [Contributing](#contributing)
+6. [Contact](#contact)
+7. [Acknowledgements](#acknowledgements)
+8. [License](#license)
 
 
 ## Overview
@@ -35,7 +35,7 @@ Quickly access your followed club's information by adding them to your <b>My Clu
 <p><img src="https://media.giphy.com/media/q6vKDPvdgwUktIXuqz/giphy.gif"></p>
 
 You can search for any tracked club across the globe by using the <b>Countries & Leagues</b> dropdown menus located above the league table component. First, select a country you would like to explore from the countries dropdown. Once a country is selected, all available leagues for that country will display in the league dropdown menu. After making your selections, the latest table results will appear below; from there, you can start adding clubs to your list and browse their latest statistics. 
-<p><b>Pro-tip:</b> You can also type directly into the search dropdowns to filter your criteria faster!</p>
+<p><b>Pro-tip:</b> You can also type directly into the search boxes to filter the dropdown options!</p>
 
 ---
 
@@ -79,7 +79,7 @@ npm install
 module.exports = {
   username: 'USERNAME',
   password: 'PASSWORD',
-  ip: 'IP_ADDRESS',
+  ip: 'localhost',
 };
 ```
 5. Rename the file `RENAME_ME_CONFIG.JS` inside server/controllers to `config.js` and add your API-FOOTBALL Host key and API key.
@@ -94,9 +94,6 @@ module.exports = {
 npm run bundle
 npm run start
 ```
-## License
-
-Distributed under the MIT License.
 
 ## Contributing
 
@@ -120,3 +117,7 @@ Project Link: [https://github.com/Matt-Wigg/soccer-stats/](https://github.com/Ma
 * [Styled-Components](https://styled-components.com/)
 * [Axios](https://github.com/axios/axios)
 * [Google Fonts](https://fonts.google.com/)
+
+## License
+
+Distributed under the MIT License.
