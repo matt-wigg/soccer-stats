@@ -1,5 +1,6 @@
-// rename this file to config.js and add API-football key
+// rename this file to config.js and add your api key & host key
+// see https://rapidapi.com/api-sports/api/api-football/pricing
 module.exports = {
-  host: 'HOSTKEY',
+  hostKey: 'HOSTKEY',
   apiKey: 'APIKEY',
 };

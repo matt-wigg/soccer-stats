@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 const axios = require('axios');
 const footy = require('../database/models/query');
-const { host, apiKey } = require('./config');
+const { hostKey, apiKey } = require('./config');
 
 // TODO: Reduce code-reuse
 
@@ -9,10 +9,10 @@ const getAndUpdateCountries = (req, res) => {
   console.log('API CALL: UPDATE COUNTRIES');
   axios({
     method: 'GET',
-    url: `https://${host}/v2/countries`,
+    url: `https://${hostKey}/v2/countries`,
     headers: {
       'content-type': 'application/octet-stream',
-      'x-rapidapi-host': host,
+      'x-rapidapi-host': hostKey,
       'x-rapidapi-key': apiKey,
       useQueryString: true,
     },
@@ -38,10 +38,10 @@ const getAndUpdateStandings = (req, res) => {
   console.log('API CALL: UPDATE STANDINGS');
   axios({
     method: 'GET',
-    url: `https://${host}/v2/leagueTable/${leagueId}`,
+    url: `https://${hostKey}/v2/leagueTable/${leagueId}`,
     headers: {
       'content-type': 'application/octet-stream',
-      'x-rapidapi-host': host,
+      'x-rapidapi-host': hostKey,
       'x-rapidapi-key': apiKey,
       useQueryString: true,
     },
@@ -67,10 +67,10 @@ const getAndUpdateLeagues = (req, res) => {
   console.log('API CALL: UPDATE COUNTRY LEAGUES');
   axios({
     method: 'GET',
-    url: `https://${host}/v2/leagues/type/league/${countryName}/2020`,
+    url: `https://${hostKey}/v2/leagues/type/league/${countryName}/2020`,
     headers: {
       'content-type': 'application/octet-stream',
-      'x-rapidapi-host': host,
+      'x-rapidapi-host': hostKey,
       'x-rapidapi-key': apiKey,
       useQueryString: true,
     },
@@ -96,10 +96,10 @@ const getAndUpdateTeamInfo = (req, res) => {
   console.log('API CALL: GET TEAM INFO');
   axios({
     method: 'GET',
-    url: `https://${host}/v2/teams/team/${teamId}`,
+    url: `https://${hostKey}/v2/teams/team/${teamId}`,
     headers: {
       'content-type': 'application/octet-stream',
-      'x-rapidapi-host': host,
+      'x-rapidapi-host': hostKey,
       'x-rapidapi-key': apiKey,
       useQueryString: true,
     },
@@ -125,10 +125,10 @@ const getAndUpdateTeamFixtures = (req, res) => {
   console.log('API CALL: GET TEAM FIXTURES');
   axios({
     method: 'GET',
-    url: `https://${host}/v2/fixtures/team/${teamId}/next/50`,
+    url: `https://${hostKey}/v2/fixtures/team/${teamId}/next/50`,
     headers: {
       'content-type': 'application/octet-stream',
-      'x-rapidapi-host': host,
+      'x-rapidapi-host': hostKey,
       'x-rapidapi-key': apiKey,
       useQueryString: true,
     },
@@ -154,10 +154,10 @@ const getAndUpdateTeamPlayers = (req, res) => {
   console.log('API CALL: GET TEAM PLAYERS');
   axios({
     method: 'GET',
-    url: `https://${host}/v2/players/squad/${teamId}/2020-2021`,
+    url: `https://${hostKey}/v2/players/squad/${teamId}/2020-2021`,
     headers: {
       'content-type': 'application/octet-stream',
-      'x-rapidapi-host': host,
+      'x-rapidapi-host': hostKey,
       'x-rapidapi-key': apiKey,
       useQueryString: true,
     },
@@ -183,10 +183,10 @@ const getAndUpdatePlayerStats = (req, res) => {
   console.log('API CALL: GET PLAYER STATS');
   axios({
     method: 'GET',
-    url: `https://${host}/v2/players/player/${playerID}/2020-2021`,
+    url: `https://${hostKey}/v2/players/player/${playerID}/2020-2021`,
     headers: {
       'content-type': 'application/octet-stream',
-      'x-rapidapi-host': host,
+      'x-rapidapi-host': hostKey,
       'x-rapidapi-key': apiKey,
       useQueryString: true,
     },
