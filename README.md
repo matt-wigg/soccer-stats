@@ -107,7 +107,9 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Contact
 
-Matthew Wigglesworth - [LinkedIn](https://www.linkedin.com/in/matt-wigg/) - m.p.wigglesworth@gmail.com
+Website - [www.mattwigg.com](https://www.mattwigg.com/)
+
+Professional - [LinkedIn](https://www.linkedin.com/in/matt-wigg/)
 
 Project Link: [https://github.com/Matt-Wigg/soccer-stats/](https://github.com/Matt-Wigg/soccer-stats/)
 
