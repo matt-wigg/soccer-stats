@@ -61,7 +61,7 @@ Soccer Stats is built with the following technologies:
 
 Node.js and npm are required in order to quickly get up and running with this project. Lukily, npm is distributed with Node.js - which means that when you download Node.js, you automatically get npm installed on your computer! You can install Node.js [HERE](https://nodejs.org/en/).
 
-Soccer Stats uses MongoDB for its datastorage of recent API calls. You can download the latest version of MonogoDB [HERE](https://www.mongodb.com/try/download/community)
+Soccer Stats uses MongoDB Community for its datastorage of recent API calls. You can download, install, and configure the latest version of MonogoDB [HERE](https://www.mongodb.com/docs/manual/)
 
 ### Installation
 
