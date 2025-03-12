@@ -1,4 +1,8 @@
 # Soccer Stats
+
+> ![IMPORTANT]
+> This repository has been archived and is now read-only. No further updates or contributions will be made.
+
 A React-based application for following and tracking your favourite soccer clubs around the world.
 
 ## Table of Contents
